@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">FBank</string>
+    <string name="enter_name">Enter name</string>
+    <string name="enter_amount">Enter total Net Worth</string>
+    <string name="done">Set</string>
+    <string name="member_details">Member details(Optional)</string>
+    <string name="wife_name">Wife name</string>
 </resources>
