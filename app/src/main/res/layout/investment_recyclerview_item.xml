@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:layout_margin="8dp"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <ImageView
+        android:id="@+id/investItemIv"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:layout_gravity="center"
+        android:background="@drawable/investment_rounded_corner_circle"
+        android:gravity="center"
+        android:padding="@dimen/margin_16"
+        android:src="@drawable/ic_baseline_money_24"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/investItemTitleTv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/margin_16"
+        android:fontFamily="@font/poppins_semibold"
+        android:gravity="center"
+        android:text="Mutual Funds"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="@+id/investItemIv"
+        app:layout_constraintStart_toStartOf="@+id/investItemIv"
+        app:layout_constraintTop_toBottomOf="@+id/investItemIv" />
+
+</LinearLayout>

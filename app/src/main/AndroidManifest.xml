@@ -10,6 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FBank">
         <activity
+            android:name=".ui.CashManagement"
+            android:exported="false" />
+        <activity
+            android:name=".ui.Investment"
+            android:exported="false" />
+        <activity
             android:name=".ui.Dashboard"
             android:exported="true">
             <intent-filter>
@@ -21,11 +27,14 @@
         <activity
             android:name=".MainActivity"
             android:exported="true">
-            <!--<intent-filter>
+
+            <!--
+            <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>-->
+            </intent-filter>
+            -->
         </activity>
     </application>
 

@@ -116,10 +116,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/poppins_semibold"
-                android:paddingStart="@dimen/margin_24"
-                android:paddingTop="@dimen/margin_24"
-                android:paddingEnd="@dimen/margin_24"
-                android:text="INVEST IN RBI BONDS"
+                android:padding="@dimen/margin_8"
+                android:text="INVESTMENTS"
                 android:textColor="#000000"
                 android:textSize="20sp"
                 android:textStyle="normal"
@@ -127,50 +125,101 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <TextView
-                android:id="@+id/earnTV"
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/constraintLayout"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:background="@drawable/rounded_corner_black"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/investmentTV">
+
+                <TextView
+                    android:id="@+id/memberTvCircle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_margin="@dimen/margin_5dp"
+                    android:background="@drawable/rounded_corner_circle"
+                    android:fontFamily="@font/poppins_semibold"
+                    android:gravity="center"
+                    android:padding="@dimen/margin_5dp"
+                    android:text="M1"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="14sp"
+                    android:textStyle="normal"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+
+                <TextView
+                    android:id="@+id/memberTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginStart="@dimen/margin_32"
+                    android:layout_marginEnd="@dimen/margin_32"
+                    android:fontFamily="@font/poppins_semibold"
+                    android:gravity="center"
+                    android:padding="@dimen/margin_5dp"
+                    android:text="Member 1"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="14sp"
+                    android:textStyle="normal"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/downArrowMember"
+                    app:layout_constraintStart_toEndOf="@+id/memberTvCircle"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/downArrowMember"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom"
+                    android:layout_margin="@dimen/margin_8"
+                    android:src="@drawable/ic_baseline_keyboard_arrow_down_brown"
+                    app:layout_constraintBottom_toBottomOf="@+id/memberTv"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/memberTv" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <View
+                android:id="@+id/view"
+                android:layout_width="wrap_content"
+                android:layout_height="1dp"
+                android:layout_marginTop="@dimen/margin_16"
+                android:background="#D4D4D4"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/constraintLayout" />
+
+            <TextView
+                android:id="@+id/myInvesments"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_24"
                 android:fontFamily="@font/poppins_semibold"
-                android:text="Earn 8.5% per annum"
-                android:textColor="@color/colorPrimary"
+                android:text="My Total Investments"
+                android:textColor="#404040"
                 android:textSize="20sp"
                 android:textStyle="normal"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/investmentTV" />
-
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/investNowBtn"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/margin_24"
-                android:layout_marginTop="@dimen/margin_8"
-                android:layout_marginEnd="@dimen/margin_24"
-                android:backgroundTint="@color/white"
-                android:elevation="@dimen/margin_16"
-                android:fontFamily="@font/poppins_semibold"
-                android:padding="8dp"
-                android:shadowColor="@color/black"
-                android:text="INVEST NOW"
-                android:textColor="@color/black"
-                android:textSize="@dimen/size_16sp"
-                app:cornerRadius="24dp"
-                app:elevation="@dimen/margin_16"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/earnTV" />
+                app:layout_constraintTop_toBottomOf="@+id/view" />
 
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/recyclerView"
+                android:id="@+id/investmentRecyclerView"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
+                android:layout_gravity="center_horizontal"
                 android:layout_marginStart="@dimen/margin_24"
                 android:layout_marginTop="@dimen/margin_8"
                 android:layout_marginEnd="@dimen/margin_24"
                 app:layout_constraintBottom_toTopOf="@+id/bottomNavigationView"
-                app:layout_constraintTop_toBottomOf="@+id/investNowBtn"
-                tools:layout_editor_absoluteX="24dp" />
+                app:layout_constraintTop_toBottomOf="@+id/myInvesments" />
 
             <com.google.android.material.floatingactionbutton.FloatingActionButton
                 android:id="@+id/add_fab"
@@ -183,7 +232,7 @@
                 android:contentDescription="@string/fabbutton"
                 android:src="@drawable/ic_baseline_add_24"
                 app:fabSize="normal"
-                app:layout_constraintBottom_toBottomOf="@+id/recyclerView"
+                app:layout_constraintBottom_toTopOf="@+id/bottomNavigationView"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:tint="@color/white" />
 
