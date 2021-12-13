@@ -61,8 +61,8 @@ public class Dashboard extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(adapter);
 
-        txtSubtitle.setText(fromHtml("<small>" + "MC ICICI TOP 100 fund has " +
-                "higher expense ratio, switch it to <font color=#03A9F4> <u>Direct fund</u>"
+        txtSubtitle.setText(fromHtml("<small>" + "Switch to 0% commission direct MF " +
+                "and get higher returns <font color=#03A9F4> <u>View recommendations.</u>"
                 + "</small>."));
 
         recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
