@@ -2,7 +2,9 @@ package com.wibmothon.fbank.ui;
 
 import static android.text.Html.fromHtml;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -34,6 +36,8 @@ public class Dashboard extends AppCompatActivity {
 
     FloatingActionButton fab;
 
+    private Button investBtn;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,6 +59,7 @@ public class Dashboard extends AppCompatActivity {
         recyclerView = findViewById(R.id.recyclerView);
         txtSubtitle = findViewById(R.id.txt_subtitle);
         fab = findViewById(R.id.add_fab);
+        investBtn = findViewById(R.id.investNowBtn);
 
         DashboardRecyclerViewAdapter adapter = new DashboardRecyclerViewAdapter(dashboardModelList, this);
         recyclerView.setHasFixedSize(true);
@@ -81,6 +86,11 @@ public class Dashboard extends AppCompatActivity {
 
                 super.onScrollStateChanged(recyclerView, newState);
             }
+        });
+
+        investBtn.setOnClickListener(view -> {
+            startActivity(new Intent(this, SendActivity.class));
+
         });
 
     }

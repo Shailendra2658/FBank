@@ -1,0 +1,95 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" 
+    android:layout_width="match_parent"
+	android:layout_weight="2"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+		android:id="@+id/relativeMain"
+        android:orientation="horizontal"
+	    android:layout_width="match_parent"
+		android:background="@drawable/wavelistener"
+	    android:layout_height="200dp">
+
+	    </RelativeLayout>
+<RelativeLayout
+	android:layout_width="match_parent"
+	android:layout_height="wrap_content"
+	android:layout_below="@+id/relativeMain"
+	>
+	<Button
+		android:id="@+id/start_reg"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:padding="10dp"
+		android:textColor="@android:color/white"
+		android:background="@android:color/holo_blue_light"
+		android:text="START" />
+
+	<Button
+		android:id="@+id/stop_reg"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:padding="10dp"
+		android:textColor="@android:color/white"
+		android:background="@android:color/holo_red_dark"
+		android:layout_alignParentEnd="true"
+		android:text="STOP" />
+	<TextView
+		android:id="@+id/regtext"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_below="@+id/start_reg"
+		android:textSize="21dp"
+		android:gravity="center"
+		android:text="Response" />
+</RelativeLayout>
+
+	<TextView
+		android:id="@+id/playtext"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_above="@+id/relativeSender"
+		android:textSize="21dp"
+		android:gravity="center"
+		android:text="Sending" />
+	<RelativeLayout
+		android:id="@+id/relativeSender"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_above="@+id/linearMain"
+		>
+
+		<Button
+			android:id="@+id/start_play"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:padding="10dp"
+			android:textColor="@android:color/white"
+			android:background="@android:color/holo_blue_light"
+			android:text="SEND" />
+
+		<Button
+			android:id="@+id/stop_play"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:padding="10dp"
+			android:textColor="@android:color/white"
+			android:background="@android:color/holo_blue_light"
+			android:layout_alignParentEnd="true"
+			android:text="STOP" />
+
+	</RelativeLayout>
+    <LinearLayout
+		android:id="@+id/linearMain"
+        android:orientation="horizontal"
+		android:layout_alignParentBottom="true"
+		android:background="@drawable/swaves"
+        android:layout_width="match_parent"
+        android:layout_height="200dp">
+
+
+
+	    </LinearLayout>
+
+</RelativeLayout>
