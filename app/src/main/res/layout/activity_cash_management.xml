@@ -243,6 +243,7 @@
             android:text="Send Money"
             android:textAllCaps="false"
             android:textColor="@color/black"
+            android:clickable="true"
             android:textSize="@dimen/size_12sp"
             app:layout_constraintEnd_toStartOf="@+id/requestMoneyTv"
             app:layout_constraintLeft_toLeftOf="parent"

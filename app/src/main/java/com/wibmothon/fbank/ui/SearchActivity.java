@@ -32,7 +32,6 @@ import static com.wibmothon.fbank.util.Util.RegHandler.MSG_SET_RECG_TEXT;
 
 public class SearchActivity extends AppCompatActivity implements SinVoiceRecognition.Listener, SinVoicePlayer.Listener {
 
-
     private final static int MAX_NUMBER = 5;
     private final static String TAG = "SearchActivity";
 
@@ -119,7 +118,7 @@ public class SearchActivity extends AppCompatActivity implements SinVoiceRecogni
         // playTextView.setText(text);
         // mSinVoicePlayer.play(text, true, 1000);
 
-        final Handler handler = new Handler();
+       /* final Handler handler = new Handler();
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
@@ -137,7 +136,7 @@ public class SearchActivity extends AppCompatActivity implements SinVoiceRecogni
                 linearNonPerson.setVisibility(View.VISIBLE);
                 linearNonFamily.setVisibility(View.VISIBLE);
             }
-        }, 5000);
+        }, 5000);*/
 
         try {
 

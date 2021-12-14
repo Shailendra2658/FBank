@@ -35,14 +35,14 @@ public class Dashboard extends AppCompatActivity implements BottomNavigationView
 
     public static BottomNavigationView bottomNavigationView;
 
-    TextView txtSubtitle;
+    private TextView txtSubtitle;
     public static ImageView imgBack;
-    ImageView downArrowImgView;
-    FragmentManager fm = getSupportFragmentManager();
+    private ImageView downArrowImgView;
+    private FragmentManager fm = getSupportFragmentManager();
 
-    final Fragment fragment1 = new HomeFragment();
-    final Fragment fragment2 = new GoalsFragment();
-    Fragment active = fragment1;
+    private final Fragment fragment1 = new HomeFragment();
+    private final Fragment fragment2 = new GoalsFragment();
+    private Fragment active = fragment1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

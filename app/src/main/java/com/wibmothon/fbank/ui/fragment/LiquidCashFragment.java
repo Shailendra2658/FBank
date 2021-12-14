@@ -1,28 +1,36 @@
 package com.wibmothon.fbank.ui.fragment;
 
+import static com.sound.waves.Common.DEFAULT_CODE_BOOK;
 import static com.wibmothon.fbank.ui.Dashboard.imgBack;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.sound.waves.SinVoicePlayer;
+import com.sound.waves.SinVoiceRecognition;
 import com.wibmothon.fbank.R;
 import com.wibmothon.fbank.adapter.DashboardRecyclerViewAdapter;
 import com.wibmothon.fbank.adapter.LiquidCashAdapter;
 import com.wibmothon.fbank.model.DashboardModel;
 import com.wibmothon.fbank.model.LCashModel;
+import com.wibmothon.fbank.ui.SearchActivity;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class LiquidCashFragment extends Fragment {
+public class LiquidCashFragment extends Fragment implements SinVoiceRecognition.Listener, SinVoicePlayer.Listener {
+
+
 
     RecyclerView recyclerViewLC;
 
@@ -44,10 +52,15 @@ public class LiquidCashFragment extends Fragment {
     ImageView downArrowImgView;
     CardView cardViewLc;
     boolean isShown = true;
+    private TextView txtSubtitle, sendMoneyTxtTv;
+    private SinVoicePlayer mSinVoicePlayer;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.activity_cash_management, container, false);
+
+        mSinVoicePlayer = new SinVoicePlayer(DEFAULT_CODE_BOOK);
+        mSinVoicePlayer.setListener(this);
 
         imgBack.setVisibility(View.VISIBLE);
 
@@ -72,6 +85,8 @@ public class LiquidCashFragment extends Fragment {
         recyclerViewLC = view.findViewById(R.id.recyclerViewLC);
         downArrowImgView = view.findViewById(R.id.downArrowImgView);
         cardViewLc = view.findViewById(R.id.cardViewLc);
+        sendMoneyTxtTv = view.findViewById(R.id.sendMoneyTxtTv);
+
 
         LiquidCashAdapter adapter = new LiquidCashAdapter(lCashModels, getActivity());
         recyclerViewLC.setHasFixedSize(true);
@@ -93,6 +108,42 @@ public class LiquidCashFragment extends Fragment {
             }
         });
 
+        sendMoneyTxtTv.setOnClickListener(v -> {
+            startActivity(new Intent(getActivity(), SearchActivity.class));
+        });
+        mSinVoicePlayer.play("1",true, 1000);
+
         return view;
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        mSinVoicePlayer.stop();
+    }
+
+    @Override
+    public void onPlayStart() {
+
+    }
+
+    @Override
+    public void onPlayEnd() {
+
+    }
+
+    @Override
+    public void onRecognitionStart() {
+
+    }
+
+    @Override
+    public void onRecognition(char ch) {
+
+    }
+
+    @Override
+    public void onRecognitionEnd() {
+
     }
 }

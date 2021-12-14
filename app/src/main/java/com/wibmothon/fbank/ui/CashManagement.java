@@ -6,6 +6,7 @@ import static com.sound.waves.Common.DEFAULT_CODE_BOOK;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -18,7 +19,7 @@ import com.wibmothon.fbank.util.TokenGeneration;
 public class CashManagement extends AppCompatActivity  implements SinVoiceRecognition.Listener, SinVoicePlayer.Listener {
 
 
-    private TextView txtSubtitle;
+    private TextView txtSubtitle, sendMoneyTxtTv;
     private SinVoicePlayer mSinVoicePlayer;
     private LinearLayout linearLayout2,linearLayout3;
 
@@ -37,10 +38,11 @@ public class CashManagement extends AppCompatActivity  implements SinVoiceRecogn
         actionBar.hide();
 
         txtSubtitle = findViewById(R.id.txt_subtitle);
+        sendMoneyTxtTv = findViewById(R.id.sendMoneyTxtTv);
         linearLayout2 = findViewById(R.id.linearLayout2);
-        linearLayout3 = findViewById(R.id.linearLayout3);
+        //linearLayout3 = findViewById(R.id.linearLayout3);
 
-        linearLayout2.setOnClickListener(view -> {
+        /*linearLayout2.setOnClickListener(view -> {
             mSinVoicePlayer.play("1",true, 1000);
 
         });
@@ -48,14 +50,18 @@ public class CashManagement extends AppCompatActivity  implements SinVoiceRecogn
         linearLayout3.setOnClickListener(view -> {
             mSinVoicePlayer.play("2",true, 1000);
 
+        });*/
+        
+        sendMoneyTxtTv.setOnClickListener(view -> {
+            startActivity(new Intent(this, SearchActivity.class));
         });
 
         txtSubtitle.setText(fromHtml("<small>" + "Switch to 0% commission direct MF " +
                 "and get higher returns <font color=#03A9F4> <u>View recommendations.</u>"
                 + "</small>."));
 
+        mSinVoicePlayer.play("1",true, 1000);
         //mSinVoicePlayer.play(TokenGeneration.getToken("androidId")+"", true, 1000);
-
     }
 
     @Override
