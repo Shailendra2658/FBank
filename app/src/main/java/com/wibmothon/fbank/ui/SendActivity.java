@@ -2,21 +2,22 @@ package com.wibmothon.fbank.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.view.View;
-import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.libra.sinvoice.LogHelper;
-import com.libra.sinvoice.SinVoicePlayer;
-import com.libra.sinvoice.SinVoiceRecognition;
+import com.bumptech.glide.Glide;
+import com.sound.waves.LogHelper;
+import com.sound.waves.SinVoicePlayer;
+import com.sound.waves.SinVoiceRecognition;
 import com.wibmothon.fbank.R;
 
 public class SendActivity extends AppCompatActivity implements SinVoiceRecognition.Listener, SinVoicePlayer.Listener {
 
-    private final static String TAG = "MainActivity";
+    private final static String TAG = "SendActivity";
     private final static int MAX_NUMBER = 5;
     private final static int MSG_SET_RECG_TEXT = 1;
     private final static int MSG_RECG_START = 2;
@@ -27,11 +28,12 @@ public class SendActivity extends AppCompatActivity implements SinVoiceRecogniti
     private Handler mHanlder;
     private SinVoicePlayer mSinVoicePlayer;
     private SinVoiceRecognition mRecognition;
+    private ImageView imgSend,imgBack;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_cool);
+        setContentView(R.layout.activity_send);
 
         mSinVoicePlayer = new SinVoicePlayer(CODEBOOK);
         mSinVoicePlayer.setListener(this);
@@ -39,7 +41,22 @@ public class SendActivity extends AppCompatActivity implements SinVoiceRecogniti
         mRecognition = new SinVoiceRecognition(CODEBOOK);
         mRecognition.setListener(this);
 
-        final TextView playTextView = (TextView) findViewById(R.id.playtext);
+        imgSend =  findViewById(R.id.imgSend);
+        imgBack =  findViewById(R.id.imageViewBack);
+
+        Glide.with(this)
+                .asGif()
+                .load(R.drawable.sending)
+                .into(imgSend);
+
+        imgSend.setOnClickListener(view -> {
+            startActivity(new Intent(this, SummaryActivity.class));
+        });
+
+        imgBack.setOnClickListener(view -> {
+            finish();
+        });
+       /* final TextView playTextView = (TextView) findViewById(R.id.playtext);
         TextView recognisedTextView = (TextView) findViewById(R.id.regtext);
         mHanlder = new RegHandler(recognisedTextView);
 
@@ -75,7 +92,7 @@ public class SendActivity extends AppCompatActivity implements SinVoiceRecogniti
             public void onClick(View arg0) {
                 mRecognition.stop();
             }
-        });
+        });*/
     }
 
     private String genText(int count) {

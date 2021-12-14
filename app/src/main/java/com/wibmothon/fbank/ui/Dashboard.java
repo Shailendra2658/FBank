@@ -93,7 +93,7 @@ public class Dashboard extends AppCompatActivity {
         });
 
         investBtn.setOnClickListener(view -> {
-            startActivity(new Intent(this, SendActivity.class));
+            startActivity(new Intent(this, SearchActivity.class));
 
         });
 

@@ -7,4 +7,8 @@
     <string name="wife_name">Wife name</string>
     <string name="switch_account"><u>Direct fund</u></string>
     <string name="fabbutton">fabButton</string>
+    <string name="add_message">Add message</string>
+    <string name="Rs">₹</string>
+    <string name="hint_zero">0</string>
+    <string name="label_send_money">Send Money</string>
 </resources>
