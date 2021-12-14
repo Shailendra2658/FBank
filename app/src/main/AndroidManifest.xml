@@ -3,18 +3,12 @@
     package="com.wibmothon.fbank">
 
     <application
-        android:allowBackup="true"
+        android:allowBackup="false"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.FBank">
-        <activity
-            android:name=".ui.CashManagement"
-            android:exported="false" />
-        <activity
-            android:name=".ui.Investment"
-            android:exported="false" />
         <activity
             android:name=".ui.Dashboard"
             android:exported="true">

@@ -2,26 +2,26 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
-        android:id="@+id/action_favorites"
+        android:id="@+id/bottom_dashboard"
         android:enabled="true"
         android:icon="@drawable/ic_baseline_home_24"
         android:title="Dashboard"
         app:showAsAction="ifRoom" />
     <item
-        android:id="@+id/action_schedules"
+        android:id="@+id/bottom_goals"
         android:enabled="true"
         android:icon="@drawable/ic_baseline_home_24"
         android:title="Goals"
         app:showAsAction="ifRoom" />
     <item
-        android:id="@+id/action_music"
+        android:id="@+id/bottom_advisory"
         android:enabled="true"
         android:icon="@drawable/ic_baseline_home_24"
         android:title="Advisory"
         app:showAsAction="ifRoom" />
 
     <item
-        android:id="@+id/accounts"
+        android:id="@+id/bottom_accounts"
         android:enabled="true"
         android:icon="@drawable/ic_baseline_home_24"
         android:title="Accounts"

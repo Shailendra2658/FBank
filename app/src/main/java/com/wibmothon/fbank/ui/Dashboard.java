@@ -2,40 +2,47 @@ package com.wibmothon.fbank.ui;
 
 import static android.text.Html.fromHtml;
 
-import android.content.Intent;
+import android.app.Activity;
+import android.app.Dialog;
+import android.content.Context;
 import android.os.Bundle;
+import android.text.SpannableString;
+import android.text.style.UnderlineSpan;
+import android.transition.TransitionManager;
+import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
+import android.view.Window;
+import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
+import androidx.appcompat.view.menu.MenuView;
+import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.wibmothon.fbank.MainActivity;
 import com.wibmothon.fbank.R;
-import com.wibmothon.fbank.adapter.DashboardRecyclerViewAdapter;
-import com.wibmothon.fbank.model.DashboardModel;
+import com.wibmothon.fbank.ui.fragment.GoalsFragment;
+import com.wibmothon.fbank.ui.fragment.HomeFragment;
 
-import java.util.ArrayList;
-import java.util.List;
+public class Dashboard extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
 
-public class Dashboard extends AppCompatActivity {
-
-    RecyclerView recyclerView;
-    String[] titleStr = {"Investments", "Insurance", "Cash Management", "Liability"};
-    String[] subTitleStr = {"View your total investments & grow your money",
-            "Build a safety net for you & your loved ones",
-            "Manage your bills and other expenses",
-            "Manage your loan & EMIs"};
-
-    List<DashboardModel> dashboardModelList;
+    public static BottomNavigationView bottomNavigationView;
 
     TextView txtSubtitle;
+    public static ImageView imgBack;
+    ImageView downArrowImgView;
+    FragmentManager fm = getSupportFragmentManager();
 
-    FloatingActionButton fab;
+    final Fragment fragment1 = new HomeFragment();
+    final Fragment fragment2 = new GoalsFragment();
+    Fragment active = fragment1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,63 +53,78 @@ public class Dashboard extends AppCompatActivity {
         assert actionBar != null;
         actionBar.hide();
 
-        dashboardModelList = new ArrayList<>();
-
-        for (int i = 0; i < titleStr.length; i++) {
-            DashboardModel dashboardModel = new DashboardModel();
-            dashboardModel.setTitleText(titleStr[i]);
-            dashboardModel.setSubTitle(subTitleStr[i]);
-            dashboardModelList.add(dashboardModel);
-        }
-
-        recyclerView = findViewById(R.id.recyclerView);
+        bottomNavigationView = findViewById(R.id.bottomNavigationView);
+        downArrowImgView = findViewById(R.id.downArrowImgView);
         txtSubtitle = findViewById(R.id.txt_subtitle);
-        fab = findViewById(R.id.add_fab);
+        imgBack = findViewById(R.id.img_back);
+        imgBack.setVisibility(View.INVISIBLE);
 
-        DashboardRecyclerViewAdapter adapter = new DashboardRecyclerViewAdapter(dashboardModelList, this);
-        recyclerView.setHasFixedSize(true);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        recyclerView.setAdapter(adapter);
+        bottomNavigationView.setOnNavigationItemSelectedListener(this);
+        bottomNavigationView.setSelectedItemId(R.id.bottom_dashboard);
 
         txtSubtitle.setText(fromHtml("<small>" + "Switch to 0% commission direct MF " +
                 "and get higher returns <font color=#03A9F4> <u>View recommendations.</u>"
                 + "</small>."));
 
-        fab.setOnClickListener(v -> startActivity(new Intent(Dashboard.this, MainActivity.class)));
+//        fab.setOnClickListener(v -> startActivity(new Intent(Dashboard.this, MainActivity.class)));
 
-        recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
-            @Override
-            public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy) {
-                if (dy > 0 || dy < 0 && fab.isShown()) {
-                    fab.hide();
-                }
-            }
+        /*HomeFragment homeFragment = new HomeFragment();
+        getSupportFragmentManager().beginTransaction().replace(R.id.flFragment, homeFragment).commit();*/
 
-            @Override
-            public void onScrollStateChanged(@NonNull RecyclerView recyclerView, int newState) {
-                if (newState == RecyclerView.SCROLL_STATE_IDLE) {
-                    fab.show();
-                }
+        downArrowImgView.setOnClickListener(v -> showDialog(Dashboard.this));
 
-                super.onScrollStateChanged(recyclerView, newState);
-            }
-        });
+    }
 
-        recyclerView.addOnItemTouchListener(new DashboardRecyclerViewAdapter.RecyclerTouchListener(getApplicationContext(), recyclerView, new DashboardRecyclerViewAdapter.ClickListener() {
-            @Override
-            public void onClick(View view, int position) {
-                if (position == 0) {
-                    startActivity(new Intent(Dashboard.this, Investment.class));
-                } else if (position == 2) {
-                    startActivity(new Intent(Dashboard.this, CashManagement.class));
-                }
-            }
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.bottom_dashboard:
+                setFragment(fragment1, "1", 0);
+                imgBack.setVisibility(View.INVISIBLE);
+                return true;
+            case R.id.bottom_goals:
+                setFragment(fragment2, "2", 1);
+                return true;
+        }
+        return false;
+    }
 
-            @Override
-            public void onLongClick(View view, int position) {
+    public void setFragment(Fragment fragment, String tag, int position) {
+        if (fragment.isAdded()) {
+            fm.beginTransaction().remove(active).show(fragment).commit();
+        } else {
+            fm.beginTransaction().replace(R.id.flFragment, fragment, tag).commit();
+        }
+        bottomNavigationView.getMenu().getItem(position).setChecked(true);
+        active = fragment;
+    }
 
-            }
-        }));
+    public void showDialog(Activity activity) {
+        final Dialog dialog = new Dialog(activity);
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        Window window = dialog.getWindow();
+        window.setBackgroundDrawableResource(android.R.color.transparent);
+        dialog.setContentView(R.layout.customdialog);
 
+        ImageView downArrow1ImgView = dialog.findViewById(R.id.downArrow1ImgView);
+        ImageView downArrow2ImgView = dialog.findViewById(R.id.downArrow2ImgView);
+        ImageView downArrow3ImgView = dialog.findViewById(R.id.downArrow3ImgView);
+
+        downArrow1ImgView.setOnClickListener(v -> dialog.dismiss());
+        downArrow2ImgView.setOnClickListener(v -> dialog.dismiss());
+        downArrow3ImgView.setOnClickListener(v -> dialog.dismiss());
+
+        dialog.show();
+
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (active == fragment1) {
+            super.onBackPressed();
+        } else {
+            imgBack.setVisibility(View.INVISIBLE);
+            setFragment(fragment1, "1", 0);
+        }
     }
 }
