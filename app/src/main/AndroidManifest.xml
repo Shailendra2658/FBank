@@ -16,6 +16,12 @@
 
         <activity android:name=".ui.SendActivity"/>
         <activity
+            android:name=".ui.CashManagement"
+            android:exported="false" />
+        <activity
+            android:name=".ui.Investment"
+            android:exported="false" />
+        <activity
             android:name=".ui.Dashboard"
             android:exported="true">
             <intent-filter>

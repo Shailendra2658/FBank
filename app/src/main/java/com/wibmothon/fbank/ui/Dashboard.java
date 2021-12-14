@@ -5,6 +5,7 @@ import static android.text.Html.fromHtml;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
+import android.view.View;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -14,6 +15,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.wibmothon.fbank.MainActivity;
 import com.wibmothon.fbank.R;
 import com.wibmothon.fbank.adapter.DashboardRecyclerViewAdapter;
 import com.wibmothon.fbank.model.DashboardModel;
@@ -70,6 +72,8 @@ public class Dashboard extends AppCompatActivity {
                 "and get higher returns <font color=#03A9F4> <u>View recommendations.</u>"
                 + "</small>."));
 
+        fab.setOnClickListener(v -> startActivity(new Intent(Dashboard.this, MainActivity.class)));
+
         recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
             @Override
             public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy) {
@@ -92,6 +96,22 @@ public class Dashboard extends AppCompatActivity {
             startActivity(new Intent(this, SendActivity.class));
 
         });
+
+        recyclerView.addOnItemTouchListener(new DashboardRecyclerViewAdapter.RecyclerTouchListener(getApplicationContext(), recyclerView, new DashboardRecyclerViewAdapter.ClickListener() {
+            @Override
+            public void onClick(View view, int position) {
+                if (position == 0) {
+                    startActivity(new Intent(Dashboard.this, Investment.class));
+                } else if (position == 2) {
+                    startActivity(new Intent(Dashboard.this, CashManagement.class));
+                }
+            }
+
+            @Override
+            public void onLongClick(View view, int position) {
+
+            }
+        }));
 
     }
 }
