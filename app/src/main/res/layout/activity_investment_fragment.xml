@@ -103,19 +103,303 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/constraintLayout" />
 
-            <TextView
-                android:id="@+id/myInvesments"
+            <LinearLayout
+                android:id="@+id/linearLayout2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/margin_24"
-                android:fontFamily="@font/poppins_semibold"
-                android:text="My Total Investments"
-                android:textColor="#404040"
-                android:textSize="20sp"
-                android:textStyle="normal"
+                android:orientation="horizontal"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/view" />
+                app:layout_constraintTop_toBottomOf="@+id/view">
+
+                <TextView
+                    android:id="@+id/myInvesments"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_24"
+                    android:fontFamily="@font/poppins_semibold"
+                    android:text="My Total Investments"
+                    android:textColor="#404040"
+                    android:textSize="20sp"
+                    android:textStyle="normal" />
+
+                <TextView
+                    android:id="@+id/amountTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginTop="@dimen/margin_24"
+                    android:fontFamily="@font/poppins_semibold"
+                    android:text="₹ 11 L"
+                    android:textColor="#EB8724"
+                    android:textSize="20sp"
+                    android:textStyle="normal" />
+
+                <ImageView
+                    android:id="@+id/downArrowImgView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom"
+                    android:layout_margin="@dimen/margin_8"
+                    android:src="@drawable/ic_baseline_keyboard_arrow_down_24" />
+            </LinearLayout>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardViewLc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/margin_16"
+                android:elevation="@dimen/margin_20dp"
+                android:visibility="gone"
+                app:cardCornerRadius="@dimen/margin_16"
+                app:cardElevation="@dimen/margin_20dp"
+                app:layout_constraintEnd_toEndOf="@+id/linearLayout2"
+                app:layout_constraintStart_toStartOf="@+id/linearLayout2"
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout2">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="@dimen/margin_8">
+
+                    <TextView
+                        android:id="@+id/member1Tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/margin_8"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:text="Mutual Funds"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="16sp"
+                        android:textStyle="normal"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/member1subTextTv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/margin_8"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:text="+₹ 9 K"
+                        android:textColor="#33B871"
+                        android:textSize="14sp"
+                        android:textStyle="normal"
+                        app:layout_constraintBottom_toBottomOf="@+id/member1Tv"
+                        app:layout_constraintStart_toEndOf="@+id/member1Tv"
+                        app:layout_constraintTop_toTopOf="@+id/member1Tv" />
+
+                    <TextView
+                        android:id="@+id/amountTvLC"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/margin_16"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:text="₹ 2 L"
+                        android:textColor="#000000"
+                        android:textSize="14sp"
+                        android:textStyle="normal"
+                        app:layout_constraintBottom_toTopOf="@+id/view2"
+                        app:layout_constraintEnd_toStartOf="@+id/imageView"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <ImageView
+                        android:id="@+id/imageView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_baseline_keyboard_arrow_right_24"
+                        app:layout_constraintBottom_toBottomOf="@+id/amountTvLC"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/amountTvLC" />
+
+                    <View
+                        android:id="@+id/view2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="8dp"
+                        android:background="#D4D4D4"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/member1Tv" />
+
+                    <TextView
+                        android:id="@+id/currentAccTv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/margin_8"
+                        android:layout_marginTop="8dp"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:text="Debt"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="16sp"
+                        android:textStyle="normal"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/view2" />
+
+                    <TextView
+                        android:id="@+id/member2subTextTv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/margin_8"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:text="+₹ 5 K"
+                        android:textColor="#33B871"
+                        android:textSize="14sp"
+                        android:textStyle="normal"
+                        app:layout_constraintBottom_toBottomOf="@+id/currentAccTv"
+                        app:layout_constraintStart_toEndOf="@+id/currentAccTv"
+                        app:layout_constraintTop_toTopOf="@+id/currentAccTv" />
+
+                    <TextView
+                        android:id="@+id/amountTv3LC"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/margin_16"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:text="₹ 1 L"
+                        android:textColor="#000000"
+                        android:textSize="14sp"
+                        android:textStyle="normal"
+                        app:layout_constraintBottom_toTopOf="@+id/view3"
+                        app:layout_constraintEnd_toStartOf="@+id/imageView3"
+                        app:layout_constraintTop_toTopOf="@+id/member2subTextTv" />
+
+                    <ImageView
+                        android:id="@+id/imageView3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_baseline_keyboard_arrow_right_24"
+                        app:layout_constraintBottom_toBottomOf="@+id/amountTv3LC"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/amountTv3LC" />
+
+                    <View
+                        android:id="@+id/view3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="8dp"
+                        android:background="#D4D4D4"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/currentAccTv" />
+
+                    <TextView
+                        android:id="@+id/inStocksTv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/margin_8"
+                        android:layout_marginTop="8dp"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:text="In Stocks"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="16sp"
+                        android:textStyle="normal"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/view3" />
+
+                    <TextView
+                        android:id="@+id/member3subTextTv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/margin_8"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:text="+₹ 5 K"
+                        android:textColor="#33B871"
+                        android:textSize="14sp"
+                        android:textStyle="normal"
+                        app:layout_constraintBottom_toBottomOf="@+id/inStocksTv"
+                        app:layout_constraintStart_toEndOf="@+id/inStocksTv"
+                        app:layout_constraintTop_toTopOf="@+id/inStocksTv" />
+
+                    <TextView
+                        android:id="@+id/amountTv2LC"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/margin_16"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:text="₹ 1 L"
+                        android:textColor="#000000"
+                        android:textSize="14sp"
+                        android:textStyle="normal"
+                        app:layout_constraintBottom_toTopOf="@+id/view4"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintEnd_toStartOf="@+id/imageView"
+                        app:layout_constraintTop_toTopOf="@+id/member3subTextTv" />
+
+                    <ImageView
+                        android:id="@+id/imageView2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_baseline_keyboard_arrow_right_24"
+                        app:layout_constraintBottom_toBottomOf="@+id/amountTv2LC"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/amountTv2LC" />
+
+                    <View
+                        android:id="@+id/view4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="8dp"
+                        android:background="#D4D4D4"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/inStocksTv" />
+
+                    <TextView
+                        android:id="@+id/realEstateTv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/margin_8"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:text="Real Estate"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="16sp"
+                        android:textStyle="normal"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/view4" />
+
+                    <TextView
+                        android:id="@+id/member4subTextTv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/margin_8"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:text="+₹ 5 K"
+                        android:textColor="#33B871"
+                        android:textSize="14sp"
+                        android:textStyle="normal"
+                        app:layout_constraintBottom_toBottomOf="@+id/realEstateTv"
+                        app:layout_constraintStart_toEndOf="@+id/realEstateTv"
+                        app:layout_constraintTop_toTopOf="@+id/realEstateTv" />
+
+                    <TextView
+                        android:id="@+id/amountTv4LC"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/margin_16"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:text="₹ 7 L"
+                        android:textColor="#000000"
+                        android:textSize="14sp"
+                        android:textStyle="normal"
+                        app:layout_constraintBottom_toBottomOf="@+id/member4subTextTv"
+                        app:layout_constraintEnd_toStartOf="@+id/imageView4"
+                        app:layout_constraintTop_toTopOf="@+id/member4subTextTv" />
+
+                    <ImageView
+                        android:id="@+id/imageView4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_baseline_keyboard_arrow_right_24"
+                        app:layout_constraintBottom_toBottomOf="@+id/amountTv4LC"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/amountTv4LC" />
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.cardview.widget.CardView>
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/investmentRecyclerView"
@@ -124,8 +408,8 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_margin="@dimen/margin_16"
                 app:layout_constraintBottom_toTopOf="@+id/cardView2"
-                app:layout_constraintTop_toBottomOf="@+id/myInvesments"
-                tools:layout_editor_absoluteX="24dp" />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/cardView2"
@@ -161,7 +445,7 @@
                         android:layout_width="@dimen/margin_80dp"
                         android:layout_height="@dimen/margin_80dp"
                         android:layout_marginTop="@dimen/margin_16"
-                        android:src="@drawable/ic_investment"
+                        android:src="@drawable/ic_goalsmain"
                         app:layout_constraintRight_toRightOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 

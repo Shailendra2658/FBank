@@ -1,6 +1,10 @@
 package com.wibmothon.fbank.ui.fragment;
 
 import static com.sound.waves.Common.DEFAULT_CODE_BOOK;
+import static com.wibmothon.fbank.ui.Dashboard.bottomNavigationView;
+import static com.wibmothon.fbank.ui.Dashboard.fab;
+import static com.wibmothon.fbank.ui.Dashboard.headerCircleImage;
+import static com.wibmothon.fbank.ui.Dashboard.headerImage;
 import static com.wibmothon.fbank.ui.Dashboard.imgBack;
 
 import android.content.Intent;
@@ -32,7 +36,6 @@ import java.util.List;
 public class LiquidCashFragment extends Fragment implements SinVoiceRecognition.Listener, SinVoicePlayer.Listener {
 
 
-
     RecyclerView recyclerViewLC;
 
     String[] LCTitle = {"Bank Accounts", "Spend Analayzer", "Split Pay", "Bill Payments"};
@@ -49,6 +52,13 @@ public class LiquidCashFragment extends Fragment implements SinVoiceRecognition.
             "Pay >",
             "Pay >"};
 
+    int[] dashboardDrawable = new int[]{
+            R.drawable.ic_lc3,
+            R.drawable.ic_lc4,
+            R.drawable.ic_lc5,
+            R.drawable.ic_lc6,
+    };
+
     List<LCashModel> lCashModels;
     ImageView downArrowImgView;
     CardView cardViewLc;
@@ -64,12 +74,17 @@ public class LiquidCashFragment extends Fragment implements SinVoiceRecognition.
         mSinVoicePlayer.setListener(this);
 
         imgBack.setVisibility(View.VISIBLE);
+        headerCircleImage.setVisibility(View.VISIBLE);
+        headerImage.setVisibility(View.GONE);
 
         imgBack.setOnClickListener(v -> {
             HomeFragment homeFragment = new HomeFragment();
             getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.flFragment,
                     homeFragment).commit();
             imgBack.setVisibility(View.INVISIBLE);
+            headerCircleImage.setVisibility(View.INVISIBLE);
+            headerImage.setVisibility(View.VISIBLE);
+            bottomNavigationView.setSelectedItemId(R.id.bottom_dashboard);
         });
 
         lCashModels = new ArrayList<>();
@@ -80,6 +95,7 @@ public class LiquidCashFragment extends Fragment implements SinVoiceRecognition.
             lCashModel.setLCSubTitle1(LCSubTitle1[i]);
             lCashModel.setLCSubTitle2(LCSubTitle2[i]);
             lCashModel.setPayTitle(payTitle[i]);
+            lCashModel.setImageSrc(dashboardDrawable[i]);
             lCashModels.add(lCashModel);
         }
 
@@ -94,6 +110,25 @@ public class LiquidCashFragment extends Fragment implements SinVoiceRecognition.
         recyclerViewLC.setHasFixedSize(true);
         recyclerViewLC.setLayoutManager(new LinearLayoutManager(getActivity()));
         recyclerViewLC.setAdapter(adapter);
+
+        recyclerViewLC.addOnScrollListener(new RecyclerView.OnScrollListener() {
+            @Override
+            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+                if (dy > 0 || dy < 0 && fab.isShown()) {
+                    fab.hide();
+                }
+            }
+
+            @Override
+            public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
+                if (newState == RecyclerView.SCROLL_STATE_IDLE) {
+                    fab.show();
+                }
+
+                super.onScrollStateChanged(recyclerView, newState);
+            }
+        });
+
 
         downArrowImgView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -113,7 +148,7 @@ public class LiquidCashFragment extends Fragment implements SinVoiceRecognition.
         sendMoneyTxtTv.setOnClickListener(v -> {
             startActivity(new Intent(getActivity(), SearchActivity.class));
         });
-       // mSinVoicePlayer.play("1",true, 1000);
+        // mSinVoicePlayer.play("1",true, 1000);
 
         recMoneyTxtTv.setOnClickListener(v -> {
             startActivity(new Intent(getActivity(), ReceiveActivity.class));

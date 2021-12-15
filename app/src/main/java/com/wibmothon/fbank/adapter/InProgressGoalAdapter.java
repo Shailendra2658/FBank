@@ -45,6 +45,7 @@ public class InProgressGoalAdapter extends RecyclerView.Adapter<RecyclerView.Vie
             ((DiscoverType1ViewHolder) holder).txt_subtitle.setText(discoverServices.getGoalsSubTitle());
             ((DiscoverType1ViewHolder) holder).achievedPercentageTv.setText(discoverServices.getAchievedPercentage());
             ((DiscoverType1ViewHolder) holder).pendingPercentageTv.setText(discoverServices.getPendingPercentage());
+            ((DiscoverType1ViewHolder) holder).item_image.setImageResource(discoverServices.getImageViewFromDrawable());
         }
     }
 

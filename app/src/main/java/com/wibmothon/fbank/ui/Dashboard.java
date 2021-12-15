@@ -28,6 +28,8 @@ import androidx.fragment.app.FragmentManager;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.wibmothon.fbank.R;
+import com.wibmothon.fbank.ui.fragment.AccountsFragments;
+import com.wibmothon.fbank.ui.fragment.AdvisoryFragment;
 import com.wibmothon.fbank.ui.fragment.GoalsFragment;
 import com.wibmothon.fbank.ui.fragment.HomeFragment;
 import com.wibmothon.fbank.util.Util;
@@ -38,12 +40,15 @@ public class Dashboard extends AppCompatActivity implements BottomNavigationView
 
     private TextView txtSubtitle;
     public static ImageView imgBack;
+    public static ImageView headerImage;
+    public static ImageView headerCircleImage;
     private ImageView downArrowImgView;
     private FragmentManager fm = getSupportFragmentManager();
 
     private final Fragment fragment1 = new HomeFragment();
-    private final Fragment fragment2 = new GoalsFragment();
     private Fragment active = fragment1;
+
+    public static FloatingActionButton fab;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,10 +60,15 @@ public class Dashboard extends AppCompatActivity implements BottomNavigationView
         actionBar.hide();
 
         bottomNavigationView = findViewById(R.id.bottomNavigationView);
+        headerImage = findViewById(R.id.headerImage);
+        headerCircleImage = findViewById(R.id.headerCircleImage);
         downArrowImgView = findViewById(R.id.downArrowImgView);
         txtSubtitle = findViewById(R.id.txt_subtitle);
+        fab = findViewById(R.id.fab);
         imgBack = findViewById(R.id.img_back);
         imgBack.setVisibility(View.INVISIBLE);
+        headerCircleImage.setVisibility(View.INVISIBLE);
+        headerImage.setVisibility(View.VISIBLE);
 
         bottomNavigationView.setOnNavigationItemSelectedListener(this);
         bottomNavigationView.setSelectedItemId(R.id.bottom_dashboard);
@@ -81,11 +91,23 @@ public class Dashboard extends AppCompatActivity implements BottomNavigationView
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
             case R.id.bottom_dashboard:
+                Fragment fragment1 = new HomeFragment();
                 setFragment(fragment1, "1", 0);
                 imgBack.setVisibility(View.INVISIBLE);
+                headerCircleImage.setVisibility(View.INVISIBLE);
+                headerImage.setVisibility(View.VISIBLE);
                 return true;
             case R.id.bottom_goals:
+                Fragment fragment2 = new GoalsFragment();
                 setFragment(fragment2, "2", 1);
+                return true;
+            case R.id.bottom_advisory:
+                Fragment fragment3 = new AdvisoryFragment();
+                setFragment(fragment3, "3", 2);
+                return true;
+            case R.id.bottom_accounts:
+                Fragment fragment4 = new AccountsFragments();
+                setFragment(fragment4, "4", 3);
                 return true;
         }
         return false;
@@ -127,6 +149,8 @@ public class Dashboard extends AppCompatActivity implements BottomNavigationView
             super.onBackPressed();
         } else {
             imgBack.setVisibility(View.INVISIBLE);
+            headerCircleImage.setVisibility(View.INVISIBLE);
+            headerImage.setVisibility(View.VISIBLE);
             setFragment(fragment1, "1", 0);
         }
     }

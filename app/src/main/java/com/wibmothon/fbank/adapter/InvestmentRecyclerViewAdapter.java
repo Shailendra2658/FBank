@@ -45,6 +45,12 @@ public class InvestmentRecyclerViewAdapter extends RecyclerView.Adapter<Recycler
         if (investmentModel != null) {
             ((DiscoverType1ViewHolder) holder).investItemTitleTv.setText(investmentModel.getInvestmentTitle());
             ((DiscoverType1ViewHolder) holder).investItemIv.setImageResource(investmentModel.getImageSrc());
+
+            if (investmentModel.getInvestmentSubTv().equals("0")) {
+                ((DiscoverType1ViewHolder) holder).investmentSubTv.setVisibility(View.INVISIBLE);
+            }
+
+            ((DiscoverType1ViewHolder) holder).investmentSubTv.setText(investmentModel.getInvestmentSubTv());
         }
     }
 
@@ -57,11 +63,13 @@ public class InvestmentRecyclerViewAdapter extends RecyclerView.Adapter<Recycler
 
         TextView investItemTitleTv;
         ImageView investItemIv;
+        TextView investmentSubTv;
 
         public DiscoverType1ViewHolder(@NonNull View itemView) {
             super(itemView);
             investItemTitleTv = itemView.findViewById(R.id.investItemTitleTv);
             investItemIv = itemView.findViewById(R.id.investItemIv);
+            investmentSubTv = itemView.findViewById(R.id.investmentSubTv);
         }
     }
 }
