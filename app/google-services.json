@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "345229207218",
+    "firebase_url": "https://fbank-22b44-default-rtdb.firebaseio.com",
+    "project_id": "fbank-22b44",
+    "storage_bucket": "fbank-22b44.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:345229207218:android:45e7bccb022b90e57c0bab",
+        "android_client_info": {
+          "package_name": "com.wibmothon.fbank"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "345229207218-amajajcnlqvj7erjjvp13555bie0t131.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD6UhsNV_NgBT6EhcGtmCrB-x6C8dR9KI8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "345229207218-amajajcnlqvj7erjjvp13555bie0t131.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -118,7 +118,7 @@ public class SearchActivity extends AppCompatActivity implements SinVoiceRecogni
         // playTextView.setText(text);
         // mSinVoicePlayer.play(text, true, 1000);
 
-       /* final Handler handler = new Handler();
+        final Handler handler = new Handler();
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
@@ -136,9 +136,9 @@ public class SearchActivity extends AppCompatActivity implements SinVoiceRecogni
                 linearNonPerson.setVisibility(View.VISIBLE);
                 linearNonFamily.setVisibility(View.VISIBLE);
             }
-        }, 5000);*/
+        }, 5000);
 
-        try {
+       /* try {
 
             ScheduledExecutorService executor =
                     Executors.newSingleThreadScheduledExecutor();
@@ -161,7 +161,7 @@ public class SearchActivity extends AppCompatActivity implements SinVoiceRecogni
             executor.scheduleAtFixedRate(periodicTask, 0, 2, TimeUnit.SECONDS);
         } catch (Exception ex) {
             Log.e(TAG, "Error " + ex);
-        }
+        }*/
     }
 
     @Override

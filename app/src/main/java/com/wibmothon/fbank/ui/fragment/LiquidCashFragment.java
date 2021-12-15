@@ -111,7 +111,7 @@ public class LiquidCashFragment extends Fragment implements SinVoiceRecognition.
         sendMoneyTxtTv.setOnClickListener(v -> {
             startActivity(new Intent(getActivity(), SearchActivity.class));
         });
-        mSinVoicePlayer.play("1",true, 1000);
+       // mSinVoicePlayer.play("1",true, 1000);
 
         return view;
     }

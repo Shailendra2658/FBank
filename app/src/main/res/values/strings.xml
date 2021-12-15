@@ -11,4 +11,5 @@
     <string name="Rs">₹</string>
     <string name="hint_zero">0</string>
     <string name="label_send_money">Send Money</string>
+    <string name="amount_sent_successfully">Sent Successfully!</string>
 </resources>

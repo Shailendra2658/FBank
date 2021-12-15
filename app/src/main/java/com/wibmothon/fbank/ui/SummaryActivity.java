@@ -23,7 +23,7 @@ public class SummaryActivity extends AppCompatActivity {
 
         Glide.with(this)
                 .asGif()
-                .load(R.drawable.success)
+                .load(R.drawable.sent_small)
                 .into(imgSuccess);
         Intent intent= new Intent(this, Dashboard.class);
         final Handler handler = new Handler();
