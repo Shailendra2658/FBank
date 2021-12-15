@@ -176,5 +176,10 @@
     <color name="tag_org">#f47920</color>
     <color name="color_sub">#121212</color>
     <color name="color_circle_grey">#1a707070</color>
+    <color name="achieved_green">#69BC72</color>
+    <color name="pending_green">#E08317</color>
+    <color name="red_color">#FF0000</color>
+
+
 
 </resources>

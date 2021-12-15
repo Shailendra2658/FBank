@@ -27,13 +27,20 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginTop="@dimen/margin_16"
         android:fontFamily="@font/poppins_semibold"
         android:gravity="center"
         android:text="Mutual Funds"
-        android:textColor="@color/black"
-        app:layout_constraintEnd_toEndOf="@+id/investItemIv"
-        app:layout_constraintStart_toStartOf="@+id/investItemIv"
-        app:layout_constraintTop_toBottomOf="@+id/investItemIv" />
+        android:textColor="@color/black" />
+
+    <TextView
+        android:id="@+id/investmentSubTv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:textSize="@dimen/size_12sp"
+        android:fontFamily="@font/poppins_semibold"
+        android:gravity="center"
+        android:text="Mutual Funds"
+        android:textColor="#FC8802" />
 
 </LinearLayout>

@@ -1,5 +1,7 @@
 package com.wibmothon.fbank.ui.fragment.goalstab;
 
+import static com.wibmothon.fbank.ui.Dashboard.fab;
+
 import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -31,6 +33,11 @@ public class InProgressGoalsTab extends Fragment {
     String[] achievedPercentage = {"- 55%", "- 38%"};
     String[] pendingPercentage = {"- 45%", "- 62%"};
 
+    int[] dashboardDrawable = new int[]{
+            R.drawable.ic_goalsmain,
+            R.drawable.ic_goalsmain,
+    };
+
     List<InProgressGoalsModel> inProgressGoalsModels;
     RecyclerView recyclerViewInProgressGoals;
 
@@ -48,6 +55,7 @@ public class InProgressGoalsTab extends Fragment {
             inProgressGoalsModel.setGoalsSubTitle(goalsSubTitle[i]);
             inProgressGoalsModel.setAchievedPercentage(achievedPercentage[i]);
             inProgressGoalsModel.setPendingPercentage(pendingPercentage[i]);
+            inProgressGoalsModel.setImageViewFromDrawable(dashboardDrawable[i]);
             inProgressGoalsModels.add(inProgressGoalsModel);
         }
 
@@ -58,6 +66,23 @@ public class InProgressGoalsTab extends Fragment {
         recyclerViewInProgressGoals.setLayoutManager(new LinearLayoutManager(getActivity()));
         recyclerViewInProgressGoals.setAdapter(adapter);
 
+        recyclerViewInProgressGoals.addOnScrollListener(new RecyclerView.OnScrollListener() {
+            @Override
+            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+                if (dy > 0 || dy < 0 && fab.isShown()) {
+                    fab.hide();
+                }
+            }
+
+            @Override
+            public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
+                if (newState == RecyclerView.SCROLL_STATE_IDLE) {
+                    fab.show();
+                }
+
+                super.onScrollStateChanged(recyclerView, newState);
+            }
+        });
 
         return view;
     }

@@ -1,5 +1,8 @@
 package com.wibmothon.fbank.ui.fragment;
 
+import static com.wibmothon.fbank.ui.Dashboard.bottomNavigationView;
+import static com.wibmothon.fbank.ui.Dashboard.headerCircleImage;
+import static com.wibmothon.fbank.ui.Dashboard.headerImage;
 import static com.wibmothon.fbank.ui.Dashboard.imgBack;
 
 import android.os.Bundle;
@@ -25,12 +28,17 @@ public class GoalsFragment extends Fragment {
         View view = inflater.inflate(R.layout.activity_goals_fragment, container, false);
 
         imgBack.setVisibility(View.VISIBLE);
+        headerCircleImage.setVisibility(View.VISIBLE);
+        headerImage.setVisibility(View.GONE);
 
         imgBack.setOnClickListener(v -> {
             HomeFragment homeFragment = new HomeFragment();
             getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.flFragment,
                     homeFragment).commit();
             imgBack.setVisibility(View.INVISIBLE);
+            headerCircleImage.setVisibility(View.INVISIBLE);
+            headerImage.setVisibility(View.VISIBLE);
+            bottomNavigationView.setSelectedItemId(R.id.bottom_dashboard);
         });
 
         ViewPager2 viewPager = view.findViewById(R.id.view_pager);

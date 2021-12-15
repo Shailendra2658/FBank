@@ -1,0 +1,621 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".ui.fragment.AccountsFragments">
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/accountsNestedScroll"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fillViewport="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentBottom="true"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/investmentTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_semibold"
+                android:padding="@dimen/margin_8"
+                android:text="Accounts"
+                android:textColor="#000000"
+                android:textSize="20sp"
+                android:textStyle="normal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.502"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/constraintLayout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:background="@drawable/rounded_corner_black"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/investmentTV">
+
+                <TextView
+                    android:id="@+id/memberTvCircle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_margin="@dimen/margin_5dp"
+                    android:background="@drawable/rounded_corner_circle"
+                    android:fontFamily="@font/poppins_semibold"
+                    android:gravity="center"
+                    android:padding="@dimen/margin_5dp"
+                    android:text="M1"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="14sp"
+                    android:textStyle="normal"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+
+                <TextView
+                    android:id="@+id/memberTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginStart="@dimen/margin_32"
+                    android:layout_marginEnd="@dimen/margin_32"
+                    android:fontFamily="@font/poppins_semibold"
+                    android:gravity="center"
+                    android:padding="@dimen/margin_5dp"
+                    android:text="Member 1"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="14sp"
+                    android:textStyle="normal"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/downArrowMember"
+                    app:layout_constraintStart_toEndOf="@+id/memberTvCircle"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/downArrowMember"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom"
+                    android:layout_margin="@dimen/margin_8"
+                    android:src="@drawable/ic_baseline_keyboard_arrow_down_brown"
+                    app:layout_constraintBottom_toBottomOf="@+id/memberTv"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/memberTv" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <View
+                android:id="@+id/view"
+                android:layout_width="wrap_content"
+                android:layout_height="1dp"
+                android:layout_marginTop="@dimen/margin_16"
+                android:background="#D4D4D4"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/constraintLayout" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardView2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/margin_5dp"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="16dp"
+                app:cardUseCompatPadding="true"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/view">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="@dimen/margin_8"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <TextView
+                        android:id="@+id/personalInfoTv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/margin_24"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:text="Personal Information"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="16sp"
+                        android:textStyle="normal"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+
+                    <TextView
+                        android:id="@+id/personalInfoSubTextTv"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppins_light"
+                        android:gravity="start"
+                        android:text="Update your profile photo,\naddress, etc"
+                        android:textAllCaps="false"
+                        android:textColor="#666666"
+                        android:textSize="@dimen/size_12sp"
+                        android:textStyle="bold"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintStart_toStartOf="@+id/personalInfoTv"
+                        app:layout_constraintTop_toBottomOf="@+id/personalInfoTv" />
+
+                    <ImageView
+                        android:id="@+id/image1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="8dp"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:gravity="center"
+                        android:src="@drawable/ic_baseline_keyboard_arrow_right_24"
+                        android:textAllCaps="false"
+                        android:textColor="#666666"
+                        android:textSize="@dimen/size_16sp"
+                        app:layout_constraintBottom_toBottomOf="@+id/personalInfoSubTextTv"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/personalInfoTv" />
+
+                    <View
+                        android:id="@+id/view2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="@dimen/margin_8"
+                        android:background="#D4D4D4"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/personalInfoSubTextTv" />
+
+                    <TextView
+                        android:id="@+id/bankDetailsTv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/margin_8"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:text="Bank Details"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="16sp"
+                        android:textStyle="normal"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/view2" />
+
+
+                    <TextView
+                        android:id="@+id/bankDetailsSubTextTv"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppins_light"
+                        android:gravity="start"
+                        android:text="Manage your bank accounts &amp; mandates"
+                        android:textAllCaps="false"
+                        android:textColor="#666666"
+                        android:textSize="@dimen/size_12sp"
+                        android:textStyle="bold"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintStart_toStartOf="@+id/bankDetailsTv"
+                        app:layout_constraintTop_toBottomOf="@+id/bankDetailsTv" />
+
+                    <ImageView
+                        android:id="@+id/image2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="8dp"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:gravity="center"
+                        android:src="@drawable/ic_baseline_keyboard_arrow_right_24"
+                        android:textAllCaps="false"
+                        android:textColor="#666666"
+                        android:textSize="@dimen/size_16sp"
+                        app:layout_constraintBottom_toBottomOf="@+id/bankDetailsSubTextTv"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/bankDetailsTv" />
+
+                    <View
+                        android:id="@+id/view3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="@dimen/margin_8"
+                        android:background="#D4D4D4"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/bankDetailsSubTextTv" />
+
+
+                    <TextView
+                        android:id="@+id/myTransactionTv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/margin_8"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:text="My Transactions"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="16sp"
+                        android:textStyle="normal"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/view3" />
+
+                    <TextView
+                        android:id="@+id/trackTransactionTv"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppins_light"
+                        android:gravity="start"
+                        android:text="Track our transactions"
+                        android:textAllCaps="false"
+                        android:textColor="#666666"
+                        android:textSize="@dimen/size_12sp"
+                        android:textStyle="bold"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintStart_toStartOf="@+id/myTransactionTv"
+                        app:layout_constraintTop_toBottomOf="@+id/myTransactionTv" />
+
+                    <ImageView
+                        android:id="@+id/image3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="8dp"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:gravity="center"
+                        android:src="@drawable/ic_baseline_keyboard_arrow_right_24"
+                        android:textAllCaps="false"
+                        android:textColor="#666666"
+                        android:textSize="@dimen/size_16sp"
+                        app:layout_constraintBottom_toBottomOf="@+id/trackTransactionTv"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/myTransactionTv" />
+
+                    <View
+                        android:id="@+id/view5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="@dimen/margin_8"
+                        android:background="#D4D4D4"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/trackTransactionTv" />
+
+                    <TextView
+                        android:id="@+id/manageNotificationTV"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/margin_8"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:text="Manage Notifications"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="16sp"
+                        android:textStyle="normal"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/view5" />
+
+                    <TextView
+                        android:id="@+id/notificaitonContentTv"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppins_light"
+                        android:gravity="start"
+                        android:text="Change the settings you\nwant to be"
+                        android:textAllCaps="false"
+                        android:textColor="#666666"
+                        android:textSize="@dimen/size_12sp"
+                        android:textStyle="bold"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintStart_toStartOf="@+id/myTransactionTv"
+                        app:layout_constraintTop_toBottomOf="@+id/manageNotificationTV" />
+
+                    <TextView
+                        android:id="@+id/onTextView"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:gravity="start"
+                        android:text="On"
+                        android:textAllCaps="false"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="@dimen/size_16sp"
+                        android:textStyle="bold"
+                        app:layout_constraintBottom_toBottomOf="@+id/image4"
+                        app:layout_constraintEnd_toStartOf="@+id/image4"
+                        app:layout_constraintTop_toTopOf="@+id/image4" />
+
+                    <ImageView
+                        android:id="@+id/image4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="8dp"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:gravity="center"
+                        android:src="@drawable/ic_baseline_keyboard_arrow_right_24"
+                        android:textAllCaps="false"
+                        android:textColor="#666666"
+                        android:textSize="@dimen/size_16sp"
+                        app:layout_constraintBottom_toBottomOf="@+id/notificaitonContentTv"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/manageNotificationTV" />
+
+                    <View
+                        android:id="@+id/view6"
+                        android:layout_width="wrap_content"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="@dimen/margin_8"
+                        android:background="#D4D4D4"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/notificaitonContentTv" />
+
+                    <TextView
+                        android:id="@+id/managePermissionTV"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/margin_8"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:text="Manage Notifications"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="16sp"
+                        android:textStyle="normal"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/view6" />
+
+                    <TextView
+                        android:id="@+id/permissionContetnTv"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppins_light"
+                        android:gravity="start"
+                        android:text="Track our transactions"
+                        android:textAllCaps="false"
+                        android:textColor="#666666"
+                        android:textSize="@dimen/size_12sp"
+                        android:textStyle="bold"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintStart_toStartOf="@+id/managePermissionTV"
+                        app:layout_constraintTop_toBottomOf="@+id/managePermissionTV" />
+
+                    <ImageView
+                        android:id="@+id/image5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="8dp"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:gravity="center"
+                        android:src="@drawable/ic_baseline_keyboard_arrow_right_24"
+                        android:textAllCaps="false"
+                        android:textColor="#666666"
+                        android:textSize="@dimen/size_16sp"
+                        app:layout_constraintBottom_toBottomOf="@+id/managePermissionTV"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/permissionContetnTv" />
+
+                    <View
+                        android:id="@+id/view7"
+                        android:layout_width="wrap_content"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="@dimen/margin_8"
+                        android:background="#D4D4D4"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/permissionContetnTv" />
+
+                    <TextView
+                        android:id="@+id/lightThemeTV"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/margin_8"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:text="Light Theme"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="16sp"
+                        android:textStyle="normal"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/view7" />
+
+                    <TextView
+                        android:id="@+id/themeContetnTv"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppins_light"
+                        android:gravity="start"
+                        android:text="Select your favourite theme"
+                        android:textAllCaps="false"
+                        android:textColor="#666666"
+                        android:textSize="@dimen/size_12sp"
+                        android:textStyle="bold"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintStart_toStartOf="@+id/lightThemeTV"
+                        app:layout_constraintTop_toBottomOf="@+id/lightThemeTV" />
+
+                    <ImageView
+                        android:id="@+id/image6"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="8dp"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:gravity="center"
+                        android:src="@drawable/ic_baseline_keyboard_arrow_right_24"
+                        android:textAllCaps="false"
+                        android:textColor="#666666"
+                        android:textSize="@dimen/size_16sp"
+                        app:layout_constraintBottom_toBottomOf="@+id/lightThemeTV"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/themeContetnTv" />
+
+                    <View
+                        android:id="@+id/view8"
+                        android:layout_width="wrap_content"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="@dimen/margin_8"
+                        android:background="#D4D4D4"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/themeContetnTv" />
+
+                    <TextView
+                        android:id="@+id/settingsMainTV"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/margin_8"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:text="Settings"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="16sp"
+                        android:textStyle="normal"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/view8" />
+
+                    <TextView
+                        android:id="@+id/settingsContetnTv"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppins_light"
+                        android:gravity="start"
+                        android:text="Change your app settings"
+                        android:textAllCaps="false"
+                        android:textColor="#666666"
+                        android:textSize="@dimen/size_12sp"
+                        android:textStyle="bold"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintStart_toStartOf="@+id/settingsMainTV"
+                        app:layout_constraintTop_toBottomOf="@+id/settingsMainTV" />
+
+                    <ImageView
+                        android:id="@+id/image7"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="8dp"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:gravity="center"
+                        android:src="@drawable/ic_baseline_keyboard_arrow_right_24"
+                        android:textAllCaps="false"
+                        android:textColor="#666666"
+                        android:textSize="@dimen/size_16sp"
+                        app:layout_constraintBottom_toBottomOf="@+id/settingsMainTV"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/settingsContetnTv" />
+
+                    <View
+                        android:id="@+id/view9"
+                        android:layout_width="wrap_content"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="@dimen/margin_8"
+                        android:background="#D4D4D4"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/settingsContetnTv" />
+
+                    <TextView
+                        android:id="@+id/aboutAppMainTV"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/margin_8"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:text="About App"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="16sp"
+                        android:textStyle="normal"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/view9" />
+
+                    <TextView
+                        android:id="@+id/aboutAppContetnTv"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppins_light"
+                        android:gravity="start"
+                        android:text="Access to Terms, \nFeedback &amp; Support, FAQ, Contact"
+                        android:textAllCaps="false"
+                        android:textColor="#666666"
+                        android:textSize="@dimen/size_12sp"
+                        android:textStyle="bold"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintStart_toStartOf="@+id/aboutAppMainTV"
+                        app:layout_constraintTop_toBottomOf="@+id/aboutAppMainTV" />
+
+                    <ImageView
+                        android:id="@+id/image8"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="8dp"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:gravity="center"
+                        android:src="@drawable/ic_baseline_keyboard_arrow_right_24"
+                        android:textAllCaps="false"
+                        android:textColor="#666666"
+                        android:textSize="@dimen/size_16sp"
+                        app:layout_constraintBottom_toBottomOf="@+id/aboutAppContetnTv"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/aboutAppMainTV" />
+
+                    <View
+                        android:id="@+id/view10"
+                        android:layout_width="wrap_content"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="@dimen/margin_8"
+                        android:background="#D4D4D4"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/aboutAppContetnTv" />
+
+                    <TextView
+                        android:id="@+id/logoutTv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/margin_8"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:text="Logout"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="16sp"
+                        android:textStyle="normal"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/view10" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:id="@+id/appVersion"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:fontFamily="@font/poppins_light"
+                android:gravity="center"
+                android:text="App Version\n1.00.00.00"
+                android:textAllCaps="false"
+                android:textColor="#999999"
+                android:textSize="@dimen/size_16sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/cardView2" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -43,6 +43,7 @@ public class AchievedGoalAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
             ((DiscoverType1ViewHolder) holder).goalYrTv.setText(discoverServices.getGoalsYear());
             ((DiscoverType1ViewHolder) holder).txt_title.setText(discoverServices.getGoalsTitle());
             ((DiscoverType1ViewHolder) holder).txt_subtitle.setText(discoverServices.getGoalsSubTitle());
+            ((DiscoverType1ViewHolder) holder).item_image.setImageResource(discoverServices.getImageViewFromDrawable());
         }
     }
 
@@ -58,7 +59,6 @@ public class AchievedGoalAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
         ImageView item_image;
         TextView txt_subtitle;
         TextView achievedPercentageTv;
-        TextView pendingPercentageTv;
 
         public DiscoverType1ViewHolder(@NonNull View itemView) {
             super(itemView);

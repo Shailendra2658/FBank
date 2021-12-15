@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/margin_8"
+    app:cardCornerRadius="10dp"
+    app:cardElevation="4dp"
+    app:cardUseCompatPadding="true"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_24"
+        android:paddingBottom="@dimen/margin_16"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/liabilityTitleTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_semibold"
+            android:text="My Son's Marriage"
+            android:textColor="#303030"
+            android:textSize="18sp"
+            android:textStyle="normal"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/item_image"
+            android:layout_width="@dimen/margin_80dp"
+            android:layout_height="@dimen/margin_80dp"
+            android:src="@drawable/ic_investment"
+            app:layout_constraintBottom_toBottomOf="@+id/liabilitySubTitle"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/liabilityTitleTv" />
+
+        <TextView
+            android:id="@+id/liabilitySubTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_5dp"
+            android:fontFamily="@font/poppins_light"
+            android:text="Edu Loan EMI"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/liabilityTitleTv" />
+
+        <TextView
+            android:id="@+id/liabilitySubTitle2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:fontFamily="@font/poppins_light"
+            android:text="Outstanding 2L"
+            android:textColor="#FC8802"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/liabilitySubTitle"
+            app:layout_constraintEnd_toStartOf="@+id/item_image"
+            app:layout_constraintStart_toEndOf="@+id/liabilitySubTitle"
+            app:layout_constraintTop_toTopOf="@+id/liabilitySubTitle" />
+
+
+        <TextView
+            android:id="@+id/btn_perform_action"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_8"
+            android:fontFamily="@font/poppins_light"
+            android:gravity="center"
+            android:text="Achieved"
+            android:textAllCaps="false"
+            android:textColor="#69BC72"
+            android:textSize="@dimen/size_14sp"
+            android:textStyle="bold"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/liabilitySubTitle" />
+
+        <TextView
+            android:id="@+id/achievedPercentageTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_5dp"
+            android:fontFamily="@font/poppins_semibold"
+            android:gravity="center"
+            android:paddingEnd="@dimen/margin_14"
+            android:text="- 55%"
+            android:textAllCaps="false"
+            android:textColor="#666666"
+            android:textSize="@dimen/size_14sp"
+            app:layout_constraintBottom_toBottomOf="@+id/btn_perform_action"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/btn_perform_action"
+            app:layout_constraintTop_toTopOf="@+id/btn_perform_action" />
+
+        <View
+            android:id="@+id/view3"
+            android:layout_width="2dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="3dp"
+            android:layout_marginBottom="3dp"
+            android:background="#D3D3D3"
+            app:layout_constraintBottom_toBottomOf="@+id/achievedPercentageTv"
+            app:layout_constraintStart_toEndOf="@+id/achievedPercentageTv"
+            app:layout_constraintTop_toTopOf="@+id/achievedPercentageTv" />
+
+        <TextView
+            android:id="@+id/pendingTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_8"
+            android:fontFamily="@font/poppins_light"
+            android:gravity="center"
+            android:text="Pending"
+            android:textAllCaps="false"
+            android:textColor="#E28C29"
+            android:textSize="@dimen/size_14sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/btn_perform_action"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/view3"
+            app:layout_constraintTop_toTopOf="@+id/btn_perform_action" />
+
+        <TextView
+            android:id="@+id/pendingPercentageTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_5dp"
+            android:fontFamily="@font/poppins_semibold"
+            android:gravity="center"
+            android:paddingEnd="@dimen/margin_14"
+            android:text="- 45%"
+            android:textAllCaps="false"
+            android:textColor="#666666"
+            android:textSize="@dimen/size_14sp"
+            app:layout_constraintBottom_toBottomOf="@+id/pendingTv"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/pendingTv"
+            app:layout_constraintTop_toTopOf="@+id/pendingTv" />
+
+        <TextView
+            android:id="@+id/viewDetailsTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_16"
+            android:fontFamily="@font/poppins_semibold"
+            android:gravity="center"
+            android:paddingEnd="@dimen/margin_14"
+            android:text="View Details >"
+            android:textAllCaps="false"
+            android:textColor="@color/colorPrimary"
+            android:textSize="@dimen/size_16sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btn_perform_action" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>

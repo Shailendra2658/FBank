@@ -54,6 +54,7 @@ public class LiquidCashAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
 
             ((DiscoverType1ViewHolder) holder).LCSubTitle2.setText(lCashModel.getLCSubTitle2());
             ((DiscoverType1ViewHolder) holder).payTitle.setText(lCashModel.getPayTitle());
+            ((DiscoverType1ViewHolder) holder).imageSrc.setImageResource(lCashModel.getImageSrc());
         }
     }
 

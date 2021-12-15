@@ -1,5 +1,7 @@
 package com.wibmothon.fbank.ui.fragment.goalstab;
 
+import static com.wibmothon.fbank.ui.Dashboard.fab;
+
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -20,15 +22,17 @@ import java.util.List;
 
 public class AchievedGoalsTab extends Fragment {
 
-    public static AchievedGoalsTab newInstance() {
-        return new AchievedGoalsTab();
-    }
 
     String[] goalsYear = {"Goal • Due by 2020", "Goal • Due by 2021"};
     String[] goalsTitle = {"Buy a Car",
             "Home Loan"};
     String[] goalsSubTitle = {"Save for the purchase of new car",
             "Save for the purchase of new\nTelevision for my office"};
+
+    int[] dashboardDrawable = new int[]{
+            R.drawable.ic_goalsmain,
+            R.drawable.ic_goalsmain,
+    };
 
     List<InProgressGoalsModel> inProgressGoalsModels;
     RecyclerView recyclerViewInProgressGoals;
@@ -45,6 +49,7 @@ public class AchievedGoalsTab extends Fragment {
             inProgressGoalsModel.setGoalsYear(goalsYear[i]);
             inProgressGoalsModel.setGoalsTitle(goalsTitle[i]);
             inProgressGoalsModel.setGoalsSubTitle(goalsSubTitle[i]);
+            inProgressGoalsModel.setImageViewFromDrawable(dashboardDrawable[i]);
             inProgressGoalsModels.add(inProgressGoalsModel);
         }
 
@@ -54,6 +59,25 @@ public class AchievedGoalsTab extends Fragment {
         recyclerViewInProgressGoals.setHasFixedSize(true);
         recyclerViewInProgressGoals.setLayoutManager(new LinearLayoutManager(getActivity()));
         recyclerViewInProgressGoals.setAdapter(adapter);
+
+        recyclerViewInProgressGoals.addOnScrollListener(new RecyclerView.OnScrollListener() {
+            @Override
+            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+                if (dy > 0 || dy < 0 && fab.isShown()) {
+                    fab.hide();
+                }
+            }
+
+            @Override
+            public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
+                if (newState == RecyclerView.SCROLL_STATE_IDLE) {
+                    fab.show();
+                }
+
+                super.onScrollStateChanged(recyclerView, newState);
+            }
+        });
+
 
         return view;
     }

@@ -3,8 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:background="@color/white"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/white">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -165,7 +165,7 @@
                     android:fontFamily="@font/poppins_semibold"
                     android:text="Savings A/c (3)"
                     android:textColor="@color/colorPrimary"
-                    android:textSize="20sp"
+                    android:textSize="@dimen/size_16sp"
                     android:textStyle="normal"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -178,10 +178,21 @@
                     android:fontFamily="@font/poppins_semibold"
                     android:text="₹ 7 L"
                     android:textColor="#000000"
-                    android:textSize="20sp"
+                    android:textSize="@dimen/size_16sp"
                     android:textStyle="normal"
                     app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/imageView"
                     app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/imageView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_baseline_keyboard_arrow_right_24"
+                    app:layout_constraintBottom_toBottomOf="@+id/amountTvLC"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/amountTvLC" />
+
 
                 <View
                     android:id="@+id/view2"
@@ -201,7 +212,7 @@
                     android:fontFamily="@font/poppins_semibold"
                     android:text="Current A/c (1)"
                     android:textColor="@color/colorPrimary"
-                    android:textSize="20sp"
+                    android:textSize="@dimen/size_16sp"
                     android:textStyle="normal"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -215,11 +226,22 @@
                     android:fontFamily="@font/poppins_semibold"
                     android:text="₹ 3 L"
                     android:textColor="#000000"
-                    android:textSize="20sp"
+                    android:textSize="@dimen/size_16sp"
                     android:textStyle="normal"
                     app:layout_constraintBottom_toBottomOf="@+id/currentAccTv"
                     app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/imageView3"
                     app:layout_constraintTop_toTopOf="@+id/currentAccTv" />
+
+                <ImageView
+                    android:id="@+id/imageView3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_baseline_keyboard_arrow_right_24"
+                    app:layout_constraintBottom_toBottomOf="@+id/amountTv2LC"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/amountTv2LC" />
+
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -232,7 +254,8 @@
             android:layout_marginTop="@dimen/margin_16"
             android:layout_marginEnd="16dp"
             android:background="@drawable/investment_rounded_corner_blue"
-            android:drawableStart="@drawable/ic_baseline_money_24"
+            android:clickable="true"
+            android:drawableStart="@drawable/ic_lc1"
             android:drawablePadding="@dimen/margin_8"
             android:fontFamily="@font/poppins_semibold"
             android:gravity="center"
@@ -243,7 +266,6 @@
             android:text="Send Money"
             android:textAllCaps="false"
             android:textColor="@color/black"
-            android:clickable="true"
             android:textSize="@dimen/size_12sp"
             app:layout_constraintEnd_toStartOf="@+id/requestMoneyTv"
             app:layout_constraintLeft_toLeftOf="parent"
@@ -257,7 +279,7 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="@dimen/margin_16"
             android:background="@drawable/investment_rounded_corner_blue"
-            android:drawableStart="@drawable/ic_baseline_money_24"
+            android:drawableStart="@drawable/ic_lc2"
             android:drawablePadding="@dimen/margin_8"
             android:fontFamily="@font/poppins_semibold"
             android:gravity="center"

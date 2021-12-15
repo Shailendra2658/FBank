@@ -2,6 +2,8 @@ package com.wibmothon.fbank.adapter;
 
 import android.content.Context;
 import android.graphics.drawable.GradientDrawable;
+import android.text.SpannableString;
+import android.text.style.UnderlineSpan;
 import android.view.GestureDetector;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
@@ -46,6 +48,19 @@ public class DashboardRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerV
         if (discoverServices != null) {
             ((DiscoverType1ViewHolder) holder).txt_title.setText(discoverServices.getTitleText());
             ((DiscoverType1ViewHolder) holder).txt_subtitle.setText(discoverServices.getSubTitle());
+            ((DiscoverType1ViewHolder) holder).item_image.setImageResource(discoverServices.getImageSrc());
+            ((DiscoverType1ViewHolder) holder).titleSubText1.setText(discoverServices.getTitleSubText1());
+            ((DiscoverType1ViewHolder) holder).titleSubText2.setText(discoverServices.getTitleSubText2());
+
+            if (position == 1) {
+                SpannableString content = new SpannableString(discoverServices.getTitleSubText1());
+                content.setSpan(new UnderlineSpan(), 0, content.length(), 0);
+                ((DiscoverType1ViewHolder) holder).titleSubText1.setText(content);
+            }
+
+            if (discoverServices.getTitleSubText2().equals("0")) {
+                ((DiscoverType1ViewHolder) holder).titleSubText2.setVisibility(View.INVISIBLE);
+            }
         }
     }
 
@@ -60,6 +75,8 @@ public class DashboardRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerV
         TextView txt_subtitle;
         ImageView item_image;
         TextView btn_perform_action;
+        TextView titleSubText1;
+        TextView titleSubText2;
 
         public DiscoverType1ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -67,6 +84,8 @@ public class DashboardRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerV
             txt_subtitle = itemView.findViewById(R.id.txt_subtitle);
             item_image = itemView.findViewById(R.id.item_image);
             btn_perform_action = itemView.findViewById(R.id.btn_perform_action);
+            titleSubText1 = itemView.findViewById(R.id.titleSubText1);
+            titleSubText2 = itemView.findViewById(R.id.titleSubText2);
         }
     }
 

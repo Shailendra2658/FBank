@@ -4,26 +4,26 @@
     <item
         android:id="@+id/bottom_dashboard"
         android:enabled="true"
-        android:icon="@drawable/ic_baseline_home_24"
+        android:icon="@drawable/ic_bottom1"
         android:title="Dashboard"
         app:showAsAction="ifRoom" />
     <item
         android:id="@+id/bottom_goals"
         android:enabled="true"
-        android:icon="@drawable/ic_baseline_home_24"
+        android:icon="@drawable/ic_bottom2"
         android:title="Goals"
         app:showAsAction="ifRoom" />
     <item
         android:id="@+id/bottom_advisory"
         android:enabled="true"
-        android:icon="@drawable/ic_baseline_home_24"
+        android:icon="@drawable/ic_bottom3"
         android:title="Advisory"
         app:showAsAction="ifRoom" />
 
     <item
         android:id="@+id/bottom_accounts"
         android:enabled="true"
-        android:icon="@drawable/ic_baseline_home_24"
+        android:icon="@drawable/ic_bottom4"
         android:title="Accounts"
         app:showAsAction="ifRoom" />
 </menu>

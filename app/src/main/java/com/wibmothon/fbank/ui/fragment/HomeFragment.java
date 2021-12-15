@@ -1,5 +1,8 @@
 package com.wibmothon.fbank.ui.fragment;
 
+import static com.wibmothon.fbank.ui.Dashboard.fab;
+
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,6 +18,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.wibmothon.fbank.R;
 import com.wibmothon.fbank.adapter.DashboardRecyclerViewAdapter;
 import com.wibmothon.fbank.model.DashboardModel;
+import com.wibmothon.fbank.model.LiabilityModel;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,6 +32,16 @@ public class HomeFragment extends Fragment {
             "Manage your bills and other expenses",
             "Manage your loan & EMIs"};
 
+    String[] titleSubText1 = {"₹ 11 L", "2 Insurance", "₹ 5 L", "₹ 2 L"};
+    String[] titleSubText2 = {"+1L", "0", "0", "@ 12%"};
+
+    int[] dashboardDrawable = new int[]{
+            R.drawable.ic_dashboard1,
+            R.drawable.ic_dashboard2,
+            R.drawable.ic_dashboard3,
+            R.drawable.ic_dashboard4,
+    };
+
     List<DashboardModel> dashboardModelList;
 
     @Override
@@ -40,6 +54,9 @@ public class HomeFragment extends Fragment {
             DashboardModel dashboardModel = new DashboardModel();
             dashboardModel.setTitleText(titleStr[i]);
             dashboardModel.setSubTitle(subTitleStr[i]);
+            dashboardModel.setImageSrc(dashboardDrawable[i]);
+            dashboardModel.setTitleSubText1(titleSubText1[i]);
+            dashboardModel.setTitleSubText2(titleSubText2[i]);
             dashboardModelList.add(dashboardModel);
         }
 
@@ -52,6 +69,7 @@ public class HomeFragment extends Fragment {
 
         InvestmentFragment investmentFragment = new InvestmentFragment();
         LiquidCashFragment cashManagementFragment = new LiquidCashFragment();
+        LiabilityFragment liabilityFragment = new LiabilityFragment();
 
         recyclerView.addOnItemTouchListener(new DashboardRecyclerViewAdapter.RecyclerTouchListener(getActivity(), recyclerView, new DashboardRecyclerViewAdapter.ClickListener() {
             @Override
@@ -60,6 +78,8 @@ public class HomeFragment extends Fragment {
                     getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.flFragment, investmentFragment).commit();
                 } else if (position == 2) {
                     getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.flFragment, cashManagementFragment).commit();
+                } else if (position == 3) {
+                    getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.flFragment, liabilityFragment).commit();
                 }
             }
 
@@ -68,6 +88,24 @@ public class HomeFragment extends Fragment {
 
             }
         }));
+
+        recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
+            @Override
+            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+                if (dy > 0 || dy < 0 && fab.isShown()) {
+                    fab.hide();
+                }
+            }
+
+            @Override
+            public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
+                if (newState == RecyclerView.SCROLL_STATE_IDLE) {
+                    fab.show();
+                }
+
+                super.onScrollStateChanged(recyclerView, newState);
+            }
+        });
 
         return view;
     }

@@ -6,7 +6,25 @@ public class DashboardModel implements Serializable {
 
     private String titleText;
     private String subTitle;
+    private String titleSubText1;
+    private String titleSubText2;
     private int imageSrc;
+
+    public String getTitleSubText1() {
+        return titleSubText1;
+    }
+
+    public void setTitleSubText1(String titleSubText1) {
+        this.titleSubText1 = titleSubText1;
+    }
+
+    public String getTitleSubText2() {
+        return titleSubText2;
+    }
+
+    public void setTitleSubText2(String titleSubText2) {
+        this.titleSubText2 = titleSubText2;
+    }
 
     public String getTitleText() {
         return titleText;

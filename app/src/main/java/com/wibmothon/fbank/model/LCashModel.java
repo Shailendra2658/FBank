@@ -8,8 +8,16 @@ public class LCashModel {
     String LCSubTitle1;
     String LCSubTitle2;
     String payTitle;
-    Drawable imageSrc;
+    int imageSrc;
 
+
+    public int getImageSrc() {
+        return imageSrc;
+    }
+
+    public void setImageSrc(int imageSrc) {
+        this.imageSrc = imageSrc;
+    }
 
     public String getLCTitle() {
         return LCTitle;
@@ -43,11 +51,4 @@ public class LCashModel {
         this.payTitle = payTitle;
     }
 
-    public Drawable getImageSrc() {
-        return imageSrc;
-    }
-
-    public void setImageSrc(Drawable imageSrc) {
-        this.imageSrc = imageSrc;
-    }
 }
