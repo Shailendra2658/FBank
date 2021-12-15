@@ -167,8 +167,11 @@ public class SearchActivity extends AppCompatActivity implements SinVoiceRecogni
     @Override
     protected void onPause() {
         super.onPause();
-        mRecognition.stop();
-        mSinVoicePlayer.stop();
+        if(mRecognition!=null)
+            mRecognition.stop();
+
+        if(mSinVoicePlayer!=null)
+            mSinVoicePlayer.stop();
     }
 
     private String genText(int count) {
@@ -197,7 +200,7 @@ public class SearchActivity extends AppCompatActivity implements SinVoiceRecogni
     public void onRecognition(char ch) {
         mTextBuilder.append(ch);
         mHanlder.sendMessage(mHanlder.obtainMessage(MSG_SET_RECG_TEXT, ch, 0));
-        if (mTextBuilder.toString().equalsIgnoreCase("1")) {
+        if (mTextBuilder.toString().equalsIgnoreCase("111")) {
             mTextBuilder.delete(0, mTextBuilder.length());//Clear Builder on finding
             user1 = true;
             new Handler(Looper.getMainLooper()).post(new Runnable() {
@@ -207,7 +210,7 @@ public class SearchActivity extends AppCompatActivity implements SinVoiceRecogni
                 }
             });
 
-        } else if (mTextBuilder.toString().equalsIgnoreCase("2")) {
+        } else if (mTextBuilder.toString().equalsIgnoreCase("333")) {
             mTextBuilder.delete(0, mTextBuilder.length());//Clear Builder on finding
             user2 = true;
             new Handler(Looper.getMainLooper()).post(new Runnable() {

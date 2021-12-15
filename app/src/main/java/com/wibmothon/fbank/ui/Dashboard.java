@@ -30,6 +30,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.wibmothon.fbank.R;
 import com.wibmothon.fbank.ui.fragment.GoalsFragment;
 import com.wibmothon.fbank.ui.fragment.HomeFragment;
+import com.wibmothon.fbank.util.Util;
 
 public class Dashboard extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
 
@@ -73,6 +74,7 @@ public class Dashboard extends AppCompatActivity implements BottomNavigationView
 
         downArrowImgView.setOnClickListener(v -> showDialog(Dashboard.this));
 
+        Util.getDataFromFirebase();
     }
 
     @Override
@@ -115,6 +117,7 @@ public class Dashboard extends AppCompatActivity implements BottomNavigationView
         downArrow3ImgView.setOnClickListener(v -> dialog.dismiss());
 
         dialog.show();
+
 
     }
 

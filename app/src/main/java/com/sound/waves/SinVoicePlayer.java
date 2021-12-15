@@ -21,6 +21,7 @@ import java.util.List;
 
 import android.media.AudioFormat;
 import android.text.TextUtils;
+import android.util.Log;
 
 import com.sound.waves.Buffer.BufferData;
 
@@ -78,6 +79,8 @@ public class SinVoicePlayer implements Encoder.Listener, Encoder.Callback, PcmPl
     public void setCodeBook(String codeBook) {
         if (!TextUtils.isEmpty(codeBook) && codeBook.length() < Encoder.getMaxCodeCount() - 1) {
             mCodeBook = codeBook;
+            Log.i(TAG, "mCodeBook "+mCodeBook);
+
         }
     }
 
@@ -90,6 +93,8 @@ public class SinVoicePlayer implements Encoder.Listener, Encoder.Callback, PcmPl
             int len = text.length();
             for (int i = 0; i < len; ++i) {
                 char ch = text.charAt(i);
+                Log.i(TAG, "Ch "+ch);
+
                 int index = mCodeBook.indexOf(ch);
                 if (index > -1) {
                     mCodes.add(index + 1);

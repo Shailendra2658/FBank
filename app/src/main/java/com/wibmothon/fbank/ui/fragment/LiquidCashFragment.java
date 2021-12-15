@@ -23,6 +23,7 @@ import com.wibmothon.fbank.adapter.DashboardRecyclerViewAdapter;
 import com.wibmothon.fbank.adapter.LiquidCashAdapter;
 import com.wibmothon.fbank.model.DashboardModel;
 import com.wibmothon.fbank.model.LCashModel;
+import com.wibmothon.fbank.ui.ReceiveActivity;
 import com.wibmothon.fbank.ui.SearchActivity;
 
 import java.util.ArrayList;
@@ -52,7 +53,7 @@ public class LiquidCashFragment extends Fragment implements SinVoiceRecognition.
     ImageView downArrowImgView;
     CardView cardViewLc;
     boolean isShown = true;
-    private TextView txtSubtitle, sendMoneyTxtTv;
+    private TextView txtSubtitle, sendMoneyTxtTv, recMoneyTxtTv;
     private SinVoicePlayer mSinVoicePlayer;
 
     @Override
@@ -86,6 +87,7 @@ public class LiquidCashFragment extends Fragment implements SinVoiceRecognition.
         downArrowImgView = view.findViewById(R.id.downArrowImgView);
         cardViewLc = view.findViewById(R.id.cardViewLc);
         sendMoneyTxtTv = view.findViewById(R.id.sendMoneyTxtTv);
+        recMoneyTxtTv = view.findViewById(R.id.requestMoneyTv);
 
 
         LiquidCashAdapter adapter = new LiquidCashAdapter(lCashModels, getActivity());
@@ -112,6 +114,10 @@ public class LiquidCashFragment extends Fragment implements SinVoiceRecognition.
             startActivity(new Intent(getActivity(), SearchActivity.class));
         });
        // mSinVoicePlayer.play("1",true, 1000);
+
+        recMoneyTxtTv.setOnClickListener(v -> {
+            startActivity(new Intent(getActivity(), ReceiveActivity.class));
+        });
 
         return view;
     }
@@ -146,4 +152,5 @@ public class LiquidCashFragment extends Fragment implements SinVoiceRecognition.
     public void onRecognitionEnd() {
 
     }
+
 }

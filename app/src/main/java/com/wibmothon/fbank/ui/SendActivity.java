@@ -1,11 +1,9 @@
 package com.wibmothon.fbank.ui;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
-import android.os.Message;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -14,6 +12,11 @@ import com.sound.waves.LogHelper;
 import com.sound.waves.SinVoicePlayer;
 import com.sound.waves.SinVoiceRecognition;
 import com.wibmothon.fbank.R;
+import com.wibmothon.fbank.util.Util;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import static com.sound.waves.Common.DEFAULT_CODE_BOOK;
 
 public class SendActivity extends AppCompatActivity implements SinVoiceRecognition.Listener, SinVoicePlayer.Listener {
 
@@ -23,26 +26,32 @@ public class SendActivity extends AppCompatActivity implements SinVoiceRecogniti
     private final static int MSG_RECG_START = 2;
     private final static int MSG_RECG_END = 3;
 
-    private final static String CODEBOOK = "12345";
 
     private Handler mHanlder;
     private SinVoicePlayer mSinVoicePlayer;
     private SinVoiceRecognition mRecognition;
     private ImageView imgSend,imgBack;
-
+private EditText amount;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_send);
 
-        mSinVoicePlayer = new SinVoicePlayer(CODEBOOK);
-        mSinVoicePlayer.setListener(this);
-
-        mRecognition = new SinVoiceRecognition(CODEBOOK);
-        mRecognition.setListener(this);
-
         imgSend =  findViewById(R.id.imgSend);
         imgBack =  findViewById(R.id.imageViewBack);
+        amount =  findViewById(R.id.editTextAmt);
+
+
+
+        mSinVoicePlayer = new SinVoicePlayer(DEFAULT_CODE_BOOK);
+        mSinVoicePlayer.setListener(this);
+
+        mRecognition = new SinVoiceRecognition(DEFAULT_CODE_BOOK);
+        mRecognition.setListener(this);
+
+        mHanlder = new Util.RegHandler(new TextView(this));
+
+
 
         Glide.with(this)
                 .asGif()
@@ -50,7 +59,11 @@ public class SendActivity extends AppCompatActivity implements SinVoiceRecogniti
                 .into(imgSend);
 
         imgSend.setOnClickListener(view -> {
-            startActivity(new Intent(this, SummaryActivity.class));
+            String amountStr = amount.getText().toString();
+            Intent intent = new Intent(this, SummaryActivity.class);
+            intent.putExtra("EXTRA_STATUS_MSG", "Sent Successfully!");
+            intent.putExtra("EXTRA_AMT", amountStr);
+            startActivity(intent);
         });
 
         imgBack.setOnClickListener(view -> {
@@ -95,50 +108,32 @@ public class SendActivity extends AppCompatActivity implements SinVoiceRecogniti
         });*/
     }
 
-    private String genText(int count) {
-        StringBuilder sb = new StringBuilder();
-        int pre = 0;
-        while (count > 0) {
-            int x = (int) (Math.random() * MAX_NUMBER + 1);
-            if (Math.abs(x - pre) > 0) {
-                sb.append(x);
-                --count;
-                pre = x;
-            }
-        }
+    @Override
+    protected void onResume() {
+        super.onResume();
+        mRecognition.start();
+        // playTextView.setText(text);
+        //mSinVoicePlayer.play("111", true, 1000);
 
-        return sb.toString();
+        /*final Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                // Do something after 5s = 5000ms
+                startActivity(new Intent(ReceiveActivity.this, SummaryActivity.class));
+
+            }
+        }, 5000);*/
     }
 
-    private static class RegHandler extends Handler {
-        private StringBuilder mTextBuilder = new StringBuilder();
-        private TextView mRecognisedTextView;
+    @Override
+    protected void onPause() {
+        super.onPause();
+        if(mRecognition!=null)
+        mRecognition.stop();
 
-        public RegHandler(TextView textView) {
-            mRecognisedTextView = textView;
-        }
-
-        @Override
-        public void handleMessage(Message msg) {
-            switch (msg.what) {
-                case MSG_SET_RECG_TEXT:
-                    char ch = (char) msg.arg1;
-                    mTextBuilder.append(ch);
-                    if (null != mRecognisedTextView) {
-                        mRecognisedTextView.setText(mTextBuilder.toString());
-                    }
-                    break;
-
-                case MSG_RECG_START:
-                    mTextBuilder.delete(0, mTextBuilder.length());
-                    break;
-
-                case MSG_RECG_END:
-                    LogHelper.d(TAG, "recognition end");
-                    break;
-            }
-            super.handleMessage(msg);
-        }
+        if(mSinVoicePlayer!=null)
+            mSinVoicePlayer.stop();
     }
 
     @Override
