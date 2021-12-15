@@ -139,8 +139,6 @@ public class Dashboard extends AppCompatActivity implements BottomNavigationView
         downArrow3ImgView.setOnClickListener(v -> dialog.dismiss());
 
         dialog.show();
-
-
     }
 
     @Override
