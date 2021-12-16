@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">FBank</string>
+    <string name="app_name">Family Mint</string>
     <string name="enter_name">Enter name</string>
     <string name="enter_amount">Enter total Net Worth</string>
     <string name="done">Set</string>

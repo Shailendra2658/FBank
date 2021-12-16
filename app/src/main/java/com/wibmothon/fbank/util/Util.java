@@ -97,7 +97,7 @@ public class Util {
                                 UserData.vBal =  dataSnapLangs.getValue().toString();
                             }else if (dataSnapLangs.getKey() != null  && dataSnapLangs.getKey().equalsIgnoreCase("Rbalance")){
                                 UserData.rBal =  dataSnapLangs.getValue().toString();
-                            }else if (dataSnapLangs.getKey() != null  && dataSnapLangs.getKey().equalsIgnoreCase("balance")){
+                            }else if (dataSnapLangs.getKey() != null  && dataSnapLangs.getKey().equalsIgnoreCase("Balance")){
                                 UserData.balance =  dataSnapLangs.getValue().toString();
                             }else  if (dataSnapLangs.getKey() != null  && dataSnapLangs.getKey().equalsIgnoreCase("Name")){
                                 UserData.name =  dataSnapLangs.getValue().toString();

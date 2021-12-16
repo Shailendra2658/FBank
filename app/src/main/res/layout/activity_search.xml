@@ -54,7 +54,7 @@
             android:layout_gravity="center"
             android:textStyle="bold"
             android:fontFamily="@font/helvetica_bold"
-            android:text="Andy" />
+            android:text="Shilpa" />
     </LinearLayout>
 
     <LinearLayout
@@ -84,7 +84,7 @@
             android:layout_gravity="center"
             android:textStyle="bold"
             android:fontFamily="@font/helvetica_bold"
-            android:text="Cinderella" />
+            android:text="Elizabeth" />
     </LinearLayout>
 
 
