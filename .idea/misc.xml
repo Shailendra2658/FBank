@@ -5,13 +5,22 @@
       <map>
         <entry key="..\:/Aravindhan/AndroidProjects/wibmo/hackathon/fbank/app/src/main/res/drawable-v24/rounded_corner_black.xml" value="0.20833333333333334" />
         <entry key="..\:/Aravindhan/AndroidProjects/wibmo/hackathon/fbank/app/src/main/res/drawable-v24/rounded_corner_circle.xml" value="0.20833333333333334" />
+        <entry key="..\:/Aravindhan/AndroidProjects/wibmo/hackathon/fbank/app/src/main/res/drawable-v24/rounded_corner_dashboard.xml" value="0.5" />
         <entry key="..\:/Aravindhan/AndroidProjects/wibmo/hackathon/fbank/app/src/main/res/drawable/background_addcard.xml" value="0.20833333333333334" />
         <entry key="..\:/Aravindhan/AndroidProjects/wibmo/hackathon/fbank/app/src/main/res/drawable/ic_back_white.xml" value="0.20833333333333334" />
         <entry key="..\:/Aravindhan/AndroidProjects/wibmo/hackathon/fbank/app/src/main/res/drawable/ic_baseline_add_24.xml" value="0.20833333333333334" />
         <entry key="..\:/Aravindhan/AndroidProjects/wibmo/hackathon/fbank/app/src/main/res/drawable/ic_baseline_home_24.xml" value="0.20833333333333334" />
         <entry key="..\:/Aravindhan/AndroidProjects/wibmo/hackathon/fbank/app/src/main/res/drawable/ic_baseline_keyboard_arrow_down_24.xml" value="0.20833333333333334" />
         <entry key="..\:/Aravindhan/AndroidProjects/wibmo/hackathon/fbank/app/src/main/res/drawable/ic_baseline_keyboard_arrow_down_brown.xml" value="0.20833333333333334" />
+        <entry key="..\:/Aravindhan/AndroidProjects/wibmo/hackathon/fbank/app/src/main/res/drawable/ic_baseline_money_24.xml" value="0.20833333333333334" />
+        <entry key="..\:/Aravindhan/AndroidProjects/wibmo/hackathon/fbank/app/src/main/res/drawable/ic_bottom1.xml" value="0.20833333333333334" />
+        <entry key="..\:/Aravindhan/AndroidProjects/wibmo/hackathon/fbank/app/src/main/res/drawable/ic_chat.xml" value="0.20833333333333334" />
         <entry key="..\:/Aravindhan/AndroidProjects/wibmo/hackathon/fbank/app/src/main/res/drawable/ic_investment.xml" value="0.20833333333333334" />
+        <entry key="..\:/Aravindhan/AndroidProjects/wibmo/hackathon/fbank/app/src/main/res/drawable/ic_lc1.xml" value="0.20833333333333334" />
+        <entry key="..\:/Aravindhan/AndroidProjects/wibmo/hackathon/fbank/app/src/main/res/drawable/ic_lc2.xml" value="0.20833333333333334" />
+        <entry key="..\:/Aravindhan/AndroidProjects/wibmo/hackathon/fbank/app/src/main/res/drawable/ic_lc5.xml" value="0.20833333333333334" />
+        <entry key="..\:/Aravindhan/AndroidProjects/wibmo/hackathon/fbank/app/src/main/res/drawable/ic_lc7.xml" value="0.20833333333333334" />
+        <entry key="..\:/Aravindhan/AndroidProjects/wibmo/hackathon/fbank/app/src/main/res/drawable/ic_lc8.xml" value="0.20833333333333334" />
         <entry key="..\:/Aravindhan/AndroidProjects/wibmo/hackathon/fbank/app/src/main/res/drawable/investment_rounded_corner_blue.xml" value="0.20833333333333334" />
         <entry key="..\:/Aravindhan/AndroidProjects/wibmo/hackathon/fbank/app/src/main/res/drawable/investment_rounded_corner_circle.xml" value="0.20833333333333334" />
         <entry key="..\:/Aravindhan/AndroidProjects/wibmo/hackathon/fbank/app/src/main/res/drawable/investment_rounded_corner_goals.xml" value="0.20833333333333334" />
@@ -28,29 +37,35 @@
         <entry key="..\:/Aravindhan/AndroidProjects/wibmo/hackathon/fbank/app/src/main/res/drawable/withline.xml" value="0.20833333333333334" />
         <entry key="..\:/Aravindhan/AndroidProjects/wibmo/hackathon/fbank/app/src/main/res/drawable/withoutline.xml" value="0.20833333333333334" />
         <entry key="..\:/Aravindhan/AndroidProjects/wibmo/hackathon/fbank/app/src/main/res/layout/achieved_goals_recyclerview_item.xml" value="0.33" />
+        <entry key="..\:/Aravindhan/AndroidProjects/wibmo/hackathon/fbank/app/src/main/res/layout/activity_accounts_fragments.xml" value="0.13" />
         <entry key="..\:/Aravindhan/AndroidProjects/wibmo/hackathon/fbank/app/src/main/res/layout/activity_achieved_goals_tab.xml" value="0.1921875" />
-        <entry key="..\:/Aravindhan/AndroidProjects/wibmo/hackathon/fbank/app/src/main/res/layout/activity_cash_management.xml" value="0.14" />
+        <entry key="..\:/Aravindhan/AndroidProjects/wibmo/hackathon/fbank/app/src/main/res/layout/activity_advisory_fragment.xml" value="0.1921875" />
+        <entry key="..\:/Aravindhan/AndroidProjects/wibmo/hackathon/fbank/app/src/main/res/layout/activity_cash_management.xml" value="0.22" />
+        <entry key="..\:/Aravindhan/AndroidProjects/wibmo/hackathon/fbank/app/src/main/res/layout/activity_cool.xml" value="0.18931159420289856" />
         <entry key="..\:/Aravindhan/AndroidProjects/wibmo/hackathon/fbank/app/src/main/res/layout/activity_dashboard.xml" value="0.25" />
         <entry key="..\:/Aravindhan/AndroidProjects/wibmo/hackathon/fbank/app/src/main/res/layout/activity_form.xml" value="0.25" />
         <entry key="..\:/Aravindhan/AndroidProjects/wibmo/hackathon/fbank/app/src/main/res/layout/activity_goals_fragment.xml" value="0.18" />
         <entry key="..\:/Aravindhan/AndroidProjects/wibmo/hackathon/fbank/app/src/main/res/layout/activity_home.xml" value="0.1921875" />
         <entry key="..\:/Aravindhan/AndroidProjects/wibmo/hackathon/fbank/app/src/main/res/layout/activity_in_progress_goals_tab.xml" value="0.282633371169126" />
         <entry key="..\:/Aravindhan/AndroidProjects/wibmo/hackathon/fbank/app/src/main/res/layout/activity_investment.xml" value="0.16394927536231885" />
-        <entry key="..\:/Aravindhan/AndroidProjects/wibmo/hackathon/fbank/app/src/main/res/layout/activity_investment_fragment.xml" value="0.4095449500554939" />
+        <entry key="..\:/Aravindhan/AndroidProjects/wibmo/hackathon/fbank/app/src/main/res/layout/activity_investment_fragment.xml" value="0.22" />
+        <entry key="..\:/Aravindhan/AndroidProjects/wibmo/hackathon/fbank/app/src/main/res/layout/activity_liability_fragment.xml" value="0.1921875" />
         <entry key="..\:/Aravindhan/AndroidProjects/wibmo/hackathon/fbank/app/src/main/res/layout/activity_main.xml" value="0.16893115942028986" />
+        <entry key="..\:/Aravindhan/AndroidProjects/wibmo/hackathon/fbank/app/src/main/res/layout/advisory_recyclerview_item.xml" value="0.1921875" />
         <entry key="..\:/Aravindhan/AndroidProjects/wibmo/hackathon/fbank/app/src/main/res/layout/customdialog.xml" value="0.25" />
         <entry key="..\:/Aravindhan/AndroidProjects/wibmo/hackathon/fbank/app/src/main/res/layout/goals_recyclerview_item.xml" value="0.14" />
         <entry key="..\:/Aravindhan/AndroidProjects/wibmo/hackathon/fbank/app/src/main/res/layout/inprogress_goals_recyclerview_item.xml" value="0.1921875" />
         <entry key="..\:/Aravindhan/AndroidProjects/wibmo/hackathon/fbank/app/src/main/res/layout/investment_recyclerview_item.xml" value="0.25" />
         <entry key="..\:/Aravindhan/AndroidProjects/wibmo/hackathon/fbank/app/src/main/res/layout/investments.xml" value="0.3079299691040165" />
         <entry key="..\:/Aravindhan/AndroidProjects/wibmo/hackathon/fbank/app/src/main/res/layout/lc_recyclerview_item.xml" value="0.2905788876276958" />
+        <entry key="..\:/Aravindhan/AndroidProjects/wibmo/hackathon/fbank/app/src/main/res/layout/libality_recyclerview_item.xml" value="0.22" />
         <entry key="..\:/Aravindhan/AndroidProjects/wibmo/hackathon/fbank/app/src/main/res/layout/line_layout.xml" value="0.1921875" />
-        <entry key="..\:/Aravindhan/AndroidProjects/wibmo/hackathon/fbank/app/src/main/res/layout/recyclerview_item.xml" value="0.21" />
+        <entry key="..\:/Aravindhan/AndroidProjects/wibmo/hackathon/fbank/app/src/main/res/layout/recyclerview_item.xml" value="0.25" />
         <entry key="..\:/Aravindhan/AndroidProjects/wibmo/hackathon/fbank/app/src/main/res/menu/bottom_navigation_main.xml" value="0.1921875" />
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">

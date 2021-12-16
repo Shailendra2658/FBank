@@ -42,12 +42,15 @@ public class LiquidCashAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
         LCashModel lCashModel = lCashModels.get(position);
         if (lCashModel != null) {
             ((DiscoverType1ViewHolder) holder).LCTitle.setText(lCashModel.getLCTitle());
+            ((DiscoverType1ViewHolder) holder).LCSubTitle1.setText(lCashModel.getLCSubTitle1());
 
             if (position == 0) {
-                ((DiscoverType1ViewHolder) holder).LCSubTitle1.setText(lCashModel.getLCSubTitle1());
+                ((DiscoverType1ViewHolder) holder).walletText.setVisibility(View.VISIBLE);
+            } else if (position == 1) {
+                ((DiscoverType1ViewHolder) holder).walletText.setVisibility(View.GONE);
                 ((DiscoverType1ViewHolder) holder).LCSubTitle1.setTextColor(context.getResources().getColor(R.color.colorPrimary));
             } else {
-                ((DiscoverType1ViewHolder) holder).LCSubTitle1.setText(lCashModel.getLCSubTitle1());
+                ((DiscoverType1ViewHolder) holder).walletText.setVisibility(View.GONE);
                 ((DiscoverType1ViewHolder) holder).LCSubTitle1.setTextColor(context.getResources().getColor(R.color.black));
             }
 
@@ -63,6 +66,7 @@ public class LiquidCashAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
         TextView LCTitle;
         TextView LCSubTitle1;
         TextView LCSubTitle2;
+        TextView walletText;
         TextView payTitle;
         ImageView imageSrc;
 
@@ -70,6 +74,7 @@ public class LiquidCashAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
             super(itemView);
             LCTitle = itemView.findViewById(R.id.txt_title);
             LCSubTitle1 = itemView.findViewById(R.id.txt_subtitle);
+            walletText = itemView.findViewById(R.id.walletText);
             LCSubTitle2 = itemView.findViewById(R.id.LCSubTitle2);
             payTitle = itemView.findViewById(R.id.btn_perform_action);
             imageSrc = itemView.findViewById(R.id.item_image);

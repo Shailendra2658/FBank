@@ -1,0 +1,30 @@
+
+£
+java:S1186J"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(¿¢…øüÿÿÿÿ8òÁ©æÛ/
+£
+java:S1186O"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(‹…ıüÿÿÿÿ8óÁ©æÛ/
+£
+java:S1186T"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(íÂÊÿÿÿÿÿ8ôÁ©æÛ/
+£
+java:S1186Y"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(êÒ‰úÿÿÿÿ8ôÁ©æÛ/
+£
+java:S1186^"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(¿ó‘ûÿÿÿÿ8õÁ©æÛ/
+H
+java:S1659",Declare "sendMoneyTxtTv" on a separate line.(¯¸Ã8Ø†•çÛ/
+M
+java:S1659"+Declare "linearLayout3" on a separate line.(¨Ôƒ úÿÿÿÿ8Ù†•çÛ/
+~
+java:S1450"\Remove the "linearLayout2" field and declare it as a local variable in the relevant methods.(¨Ôƒ úÿÿÿÿ8Ü†•çÛ/
+y
+java:S1450"]Remove the "sendMoneyTxtTv" field and declare it as a local variable in the relevant methods.(¯¸Ã8İ†•çÛ/
+v
+java:S1450"ZRemove the "txtSubtitle" field and declare it as a local variable in the relevant methods.(¯¸Ã8Ş†•çÛ/
+]	java:S125+"<This block of commented-out lines of code should be removed.(Òğ§ºùÿÿÿÿ8‡•çÛ/
+]	java:S125-"<This block of commented-out lines of code should be removed.(µ˜—šÿÿÿÿÿ8‚‡•çÛ/
+N
+java:S16027",Remove useless curly braces around statement(£ŞÁÉÿÿÿÿÿ8ƒ‡•çÛ/
+R
+java:S1874;"0Remove this use of "fromHtml"; it is deprecated.(Â‰¬ıÿÿÿÿ8“‡•çÛ/
+]	java:S125@"<This block of commented-out lines of code should be removed.(ëä„şıÿÿÿÿ8”‡•çÛ/
+S
+java:S1068"1Remove this unused "linearLayout3" private field.(¨Ôƒ úÿÿÿÿ8‡•çÛ/

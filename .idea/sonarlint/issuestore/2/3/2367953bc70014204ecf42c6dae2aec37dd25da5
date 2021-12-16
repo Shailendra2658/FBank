@@ -1,0 +1,10 @@
+
+R
+java:S1874."0Remove this use of "getColor"; it is deprecated.(ØàÇêıÿÿÿÿ8Æ¨áïÛ/
+M
+java:S18740"0Remove this use of "getColor"; it is deprecated.(“Õ‘ş8”àâïÛ/
+u	java:S116D"TRename this field "txt_title" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(…òò„üÿÿÿÿ8àšºïÛ/
+v	java:S116E"URename this field "item_image" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.( £½†øÿÿÿÿ8àšºïÛ/
+r	java:S116F"WRename this field "txt_subtitle" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Å–—p8×°¼ïÛ/
+f
+java:S1301!"KReplace this "switch" statement by "if" statements to increase readability.(ÿ¶°Øüÿÿÿÿ

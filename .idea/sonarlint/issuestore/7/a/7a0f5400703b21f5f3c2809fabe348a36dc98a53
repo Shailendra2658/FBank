@@ -1,0 +1,9 @@
+
+s	java:S116"RRename this field "LCTitle" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(öäî­ÿÿÿÿÿ8–é¥ÉÛ/
+r	java:S116"VRename this field "LCSubTitle1" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(„ÃŸà8†ØªÉÛ/
+r	java:S116	"VRename this field "LCSubTitle2" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ú…‰î8ß‘«ÉÛ/
+a
+java:S1128"?Remove this unused import 'android.graphics.drawable.Drawable'.(Á‰º„ùÿÿÿÿ8›ùÆíÛ/
+l	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(²–8ø®ÉÛ/
+r	java:S117""QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Å±¦ıÿÿÿÿ8ø®ÉÛ/
+m	java:S117*"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¾ÆÁ8ø®ÉÛ/

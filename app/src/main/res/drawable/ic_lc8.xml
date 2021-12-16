@@ -1,0 +1,42 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="52dp"
+    android:height="51.982dp"
+    android:viewportWidth="52"
+    android:viewportHeight="51.982">
+    <group>
+        <clip-path android:pathData="M0,0h52v51.981h-52z" />
+        <path
+            android:fillColor="#cccccc"
+            android:pathData="M27.516,51.981H24.47c-0.686,-0.082 -1.373,-0.151 -2.057,-0.248a25.389,25.389 0,0 1,-13.536 -6.2A25.439,25.439 0,0 1,0.4 30.464C0.229,29.488 0.131,28.5 0,27.515V24.47a4.2,4.2 0,0 0,0.089 -0.487,24.726 24.726,0 0,1 1.446,-6.819 26,26 0,0 1,49.995 13.7,25.534 25.534,0 0,1 -7.053,13.386 25.353,25.353 0,0 1,-14 7.329c-0.979,0.169 -1.971,0.269 -2.957,0.4M48.94,25.976A22.947,22.947 0,1 0,26.01 48.935,22.946 22.946,0 0,0 48.94,25.976" />
+        <path
+            android:fillColor="#cccccc"
+            android:pathData="M22.365,9.936h2.984v32.115h-2.984z" />
+        <path
+            android:fillColor="#cccccc"
+            android:pathData="M26.637,12.678h3.002v26.633h-3.002z" />
+        <path
+            android:fillColor="#cccccc"
+            android:pathData="M18.043,17.596h2.965v16.81h-2.965z" />
+        <path
+            android:fillColor="#cccccc"
+            android:pathData="M30.978,18.142h2.963v15.683h-2.963z" />
+        <path
+            android:fillColor="#cccccc"
+            android:pathData="M13.72,20.84h3.001v10.306h-3.001z" />
+        <path
+            android:fillColor="#cccccc"
+            android:pathData="M35.254,21.454h2.984v9.068h-2.984z" />
+        <path
+            android:fillColor="#cccccc"
+            android:pathData="M9.438,22.648h2.967v6.684h-2.967z" />
+        <path
+            android:fillColor="#cccccc"
+            android:pathData="M39.566,22.864h2.979v6.257h-2.979z" />
+        <path
+            android:fillColor="#cccccc"
+            android:pathData="M5.117,24.191h2.977v3.607h-2.977z" />
+        <path
+            android:fillColor="#cccccc"
+            android:pathData="M43.894,24.201h2.974v3.592h-2.974z" />
+    </group>
+</vector>

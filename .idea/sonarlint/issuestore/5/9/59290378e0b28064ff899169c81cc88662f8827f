@@ -1,0 +1,40 @@
+
+H
+java:S1659!"-Declare "imageViewPerson" on a separate line.(Ëœàıÿÿÿÿ
+y
+java:S1450!"^Remove the "imageViewPerson" field and declare it as a local variable in the relevant methods.(Ëœàıÿÿÿÿ
+w
+java:S1450!"\Remove the "imageViewScan" field and declare it as a local variable in the relevant methods.(Ëœàıÿÿÿÿ
+`
+java:S1124"EReorder the modifiers to comply with the Java Language Specification.( ÃÕÓşÿÿÿÿ
+Z
+java:S1124"EReorder the modifiers to comply with the Java Language Specification.(…Ãş
+`
+java:S1124"EReorder the modifiers to comply with the Java Language Specification.(ïğÀƒüÿÿÿÿ
+`
+java:S1124"EReorder the modifiers to comply with the Java Language Specification.(ƒ­©úÿÿÿÿÿ
+[
+java:S1124"EReorder the modifiers to comply with the Java Language Specification.(ô§±°
+[
+java:S1124"EReorder the modifiers to comply with the Java Language Specification.(ÀÀÁ
+Q	java:S125."<This block of commented-out lines of code should be removed.(™†Í¤
+B
+java:S1602;",Remove useless curly braces around statement(Ó¥†
+V	java:S125?"<This block of commented-out lines of code should be removed.(‚÷úíøÿÿÿÿ
+V	java:S125D"<This block of commented-out lines of code should be removed.(éØ»Úûÿÿÿÿ
+V	java:S125G"<This block of commented-out lines of code should be removed.(„­ôåÿÿÿÿÿ
+Q	java:S125O"<This block of commented-out lines of code should be removed.(èÀå
+N
+java:S1854d"8Remove this useless assignment to local variable "text".(øôÎ«
+?
+java:S1481d")Remove this unused "text" local variable.(øôÎ«
+V	java:S125e"<This block of commented-out lines of code should be removed.(Š…¼±ûÿÿÿÿ
+J
+java:S1874h"/Remove this use of "Handler"; it is deprecated.(§çµüÿÿÿÿ
+>
+java:S2140}")Use "java.util.Random.nextInt()" instead.(½Y
+=	java:S131’""Add a default case to this switch.(ıŞ³‹ùÿÿÿÿ
+N
+java:S1068!"3Remove this unused "imageViewPerson" private field.(Ëœàıÿÿÿÿ
+>
+java:S1604i"(Make this anonymous inner class a lambda(†£°î
