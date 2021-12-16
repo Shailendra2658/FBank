@@ -5,10 +5,13 @@ import static com.wibmothon.fbank.ui.Dashboard.fab;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 
+import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.core.widget.NestedScrollView;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
@@ -43,6 +46,8 @@ public class HomeFragment extends Fragment {
     };
 
     List<DashboardModel> dashboardModelList;
+    ConstraintLayout dashboardParentConst;
+    NestedScrollView dashboardNested;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -61,10 +66,14 @@ public class HomeFragment extends Fragment {
         }
 
         recyclerView = view.findViewById(R.id.recyclerView);
+        dashboardParentConst = view.findViewById(R.id.dashboardParentConst);
+
+        dashboardNested = view.findViewById(R.id.dashboardNested);
 
         DashboardRecyclerViewAdapter adapter = new DashboardRecyclerViewAdapter(dashboardModelList, getActivity());
         recyclerView.setHasFixedSize(true);
-        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+        LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity());
+        recyclerView.setLayoutManager(layoutManager);
         recyclerView.setAdapter(adapter);
 
         InvestmentFragment investmentFragment = new InvestmentFragment();
@@ -89,7 +98,26 @@ public class HomeFragment extends Fragment {
             }
         }));
 
+        dashboardNested.setOnScrollChangeListener(new NestedScrollView.OnScrollChangeListener() {
+            @Override
+            public void onScrollChange(NestedScrollView v, int dx, int dy, int oldScrollX, int oldScrollY) {
+                if (dy > 0 || dy < 0 && fab.isShown()) {
+                    fab.hide();
+                } else {
+                    fab.show();
+                }
+                View view = (View) dashboardNested.getChildAt(dashboardNested.getChildCount() - 1);
+                int diff = (view.getBottom() - (v.getHeight() + dashboardNested
+                        .getScrollY()));
+
+                if (diff == 0) {
+                    fab.show();
+                }
+            }
+        });
+
         recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
+
             @Override
             public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
                 if (dy > 0 || dy < 0 && fab.isShown()) {
@@ -109,4 +137,5 @@ public class HomeFragment extends Fragment {
 
         return view;
     }
+
 }

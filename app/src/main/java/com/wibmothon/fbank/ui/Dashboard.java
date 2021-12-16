@@ -34,6 +34,7 @@ import com.wibmothon.fbank.ui.fragment.AccountsFragments;
 import com.wibmothon.fbank.ui.fragment.AdvisoryFragment;
 import com.wibmothon.fbank.ui.fragment.GoalsFragment;
 import com.wibmothon.fbank.ui.fragment.HomeFragment;
+import com.wibmothon.fbank.ui.fragment.LiquidCashFragment;
 import com.wibmothon.fbank.util.Util;
 
 public class Dashboard extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
@@ -87,6 +88,11 @@ public class Dashboard extends AppCompatActivity implements BottomNavigationView
         downArrowImgView.setOnClickListener(v -> showDialog(Dashboard.this));
 
         Util.getDataFromFirebase();
+
+        if (getIntent().hasExtra("EXTRA_CASH")) {
+            LiquidCashFragment cashManagementFragment = new LiquidCashFragment();
+            getSupportFragmentManager().beginTransaction().replace(R.id.flFragment, cashManagementFragment).commit();
+        }
     }
 
     @Override
