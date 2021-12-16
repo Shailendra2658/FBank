@@ -74,7 +74,7 @@ public class ReceiveActivity extends AppCompatActivity implements SinVoiceRecogn
         super.onResume();
         mRecognition.start();
         // playTextView.setText(text);
-      //  mSinVoicePlayer.play("1", true, 1000);
+      //   mSinVoicePlayer.play("1", true, 1000);
 
         /*final Handler handler = new Handler();
         handler.postDelayed(new Runnable() {
