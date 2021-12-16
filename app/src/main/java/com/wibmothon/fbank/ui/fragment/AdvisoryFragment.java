@@ -6,10 +6,16 @@ import static com.wibmothon.fbank.ui.Dashboard.headerCircleImage;
 import static com.wibmothon.fbank.ui.Dashboard.headerImage;
 import static com.wibmothon.fbank.ui.Dashboard.imgBack;
 
+import android.app.Activity;
+import android.app.Dialog;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -20,6 +26,7 @@ import com.wibmothon.fbank.adapter.AdvisoryAdapter;
 import com.wibmothon.fbank.adapter.InProgressGoalAdapter;
 import com.wibmothon.fbank.model.AdvisoryModel;
 import com.wibmothon.fbank.model.InProgressGoalsModel;
+import com.wibmothon.fbank.model.UserData;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -45,6 +52,10 @@ public class AdvisoryFragment extends Fragment {
 
     List<AdvisoryModel> advisoryModels;
     RecyclerView advisoryRecyclerView;
+
+    TextView memberTv;
+    TextView memberTvCircle;
+    ImageView downArrowMember;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -101,6 +112,62 @@ public class AdvisoryFragment extends Fragment {
             }
         });
 
+        memberTv = view.findViewById(R.id.memberTv);
+        memberTvCircle = view.findViewById(R.id.memberTvCircle);
+        downArrowMember = view.findViewById(R.id.downArrowMember);
+
+        memberTv.setText("Vijay P");
+        memberTvCircle.setText("VP");
+
+        downArrowMember.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showDialog(getActivity());
+            }
+        });
+
         return view;
+    }
+
+    public void showDialog(Activity activity) {
+        final Dialog dialog = new Dialog(activity);
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        Window window = dialog.getWindow();
+        window.setBackgroundDrawableResource(android.R.color.transparent);
+        dialog.setContentView(R.layout.customdialog);
+
+        ImageView downArrow1ImgView = dialog.findViewById(R.id.downArrow1ImgView);
+        ImageView downArrow2ImgView = dialog.findViewById(R.id.downArrow2ImgView);
+        ImageView downArrow3ImgView = dialog.findViewById(R.id.downArrow3ImgView);
+
+        downArrow1ImgView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                memberTv.setText("Vijay P");
+                memberTvCircle.setText("VP");
+                dialog.dismiss();
+            }
+        });
+
+        downArrow2ImgView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                memberTv.setText("Shilpa P");
+                memberTvCircle.setText("SP");
+                dialog.dismiss();
+            }
+        });
+
+        downArrow3ImgView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                memberTv.setText("Rama N");
+                memberTvCircle.setText("RN");
+                Log.d("userDataValues", "UserData " + UserData.rBal);
+                dialog.dismiss();
+            }
+        });
+
+        dialog.show();
     }
 }
