@@ -27,6 +27,24 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
+        <Switch
+            android:id="@+id/switchVisibility"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_8"
+            android:layout_marginEnd="@dimen/margin_5dp"
+            android:checked="false"
+            android:gravity="center"
+            android:text="Make \n Visible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:paddingBottom="@dimen/margin_12dp"
+            android:paddingEnd="@dimen/margin_12dp"
+            android:paddingTop="@dimen/margin_4dp"
+            android:trackTint="@color/purple_v2"
+            android:theme="@style/mySwitchWalletTheme2"
+            app:thumbTint="@color/white"/>
+
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/constraintLayout"
             android:layout_width="wrap_content"
@@ -41,12 +59,11 @@
                 android:id="@+id/memberTvCircle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentStart="true"
                 android:layout_margin="@dimen/margin_5dp"
                 android:background="@drawable/rounded_corner_circle"
                 android:fontFamily="@font/poppins_semibold"
                 android:gravity="center"
-                android:padding="@dimen/margin_5dp"
+                android:padding="@dimen/margin_8"
                 android:text="M1"
                 android:textColor="@color/colorPrimary"
                 android:textSize="14sp"

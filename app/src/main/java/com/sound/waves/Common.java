@@ -23,5 +23,5 @@ public class Common {
 
     public final static int DEFAULT_BUFFER_SIZE = 4096;
     public final static int DEFAULT_BUFFER_COUNT = 3;
-    public final static int DEFAULT_SAMPLE_RATE = 44100; //standard hearing range for humans is 20 to 20,000 Hz
+    public final static int DEFAULT_SAMPLE_RATE = 44100; //standard hearing range for humans is 20Hz to 20,000Hz Android support 48KHz 44.1KHz, 88.2kHz, 96kHz, 176.4kHz, 192kHz
 }

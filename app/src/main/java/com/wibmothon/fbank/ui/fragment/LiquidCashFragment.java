@@ -6,13 +6,20 @@ import static com.wibmothon.fbank.ui.Dashboard.fab;
 import static com.wibmothon.fbank.ui.Dashboard.headerCircleImage;
 import static com.wibmothon.fbank.ui.Dashboard.headerImage;
 import static com.wibmothon.fbank.ui.Dashboard.imgBack;
+import static com.wibmothon.fbank.util.Util.RegHandler.MSG_RECG_END;
+import static com.wibmothon.fbank.util.Util.RegHandler.MSG_RECG_START;
+import static com.wibmothon.fbank.util.Util.RegHandler.MSG_SET_RECG_TEXT;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.Switch;
 import android.widget.TextView;
 
 import androidx.cardview.widget.CardView;
@@ -29,14 +36,18 @@ import com.wibmothon.fbank.model.DashboardModel;
 import com.wibmothon.fbank.model.LCashModel;
 import com.wibmothon.fbank.ui.ReceiveActivity;
 import com.wibmothon.fbank.ui.SearchActivity;
+import com.wibmothon.fbank.ui.SummaryActivity;
+import com.wibmothon.fbank.util.Util;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class LiquidCashFragment extends Fragment implements SinVoiceRecognition.Listener, SinVoicePlayer.Listener {
 
+    private final static String TAG = "LiquidCashFragment";
 
     RecyclerView recyclerViewLC;
+    boolean isRegStart;
 
     String[] LCTitle = {"Bank Accounts", "Spend Analayzer", "Split Pay", "Bill Payments"};
     String[] LCSubTitle1 = {"3 Savings A/c & 1 Current A/c",
@@ -65,6 +76,12 @@ public class LiquidCashFragment extends Fragment implements SinVoiceRecognition.
     boolean isShown = true;
     private TextView txtSubtitle, sendMoneyTxtTv, recMoneyTxtTv;
     private SinVoicePlayer mSinVoicePlayer;
+    private SinVoiceRecognition mRecognition;
+    private Switch switchVisibility;
+    private StringBuilder mTextBuilder = new StringBuilder();
+    private Handler mHanlder;
+
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -72,6 +89,24 @@ public class LiquidCashFragment extends Fragment implements SinVoiceRecognition.
 
         mSinVoicePlayer = new SinVoicePlayer(DEFAULT_CODE_BOOK);
         mSinVoicePlayer.setListener(this);
+        mRecognition = new SinVoiceRecognition(DEFAULT_CODE_BOOK);
+        mRecognition.setListener(this);
+        mHanlder = new Util.RegHandler(new TextView(getActivity()));
+
+
+        switchVisibility = view.findViewById(R.id.switchVisibility);
+
+        switchVisibility.setOnCheckedChangeListener((compoundButton, b) -> {
+            if (b)
+                mSinVoicePlayer.play("1", true, 1000);
+            else {
+                mSinVoicePlayer.stop();
+                if(!isRegStart) {
+                    isRegStart = true;
+                    mRecognition.start();
+                }
+            }
+        });
 
         imgBack.setVisibility(View.VISIBLE);
         headerCircleImage.setVisibility(View.VISIBLE);
@@ -158,9 +193,19 @@ public class LiquidCashFragment extends Fragment implements SinVoiceRecognition.
     }
 
     @Override
+    public void onResume() {
+        super.onResume();
+        Util.getDataFromFirebase();
+    }
+
+    @Override
     public void onPause() {
         super.onPause();
-        mSinVoicePlayer.stop();
+        if (mRecognition != null)
+            mRecognition.stop();
+
+        if (mSinVoicePlayer != null)
+            mSinVoicePlayer.stop();
     }
 
     @Override
@@ -175,16 +220,50 @@ public class LiquidCashFragment extends Fragment implements SinVoiceRecognition.
 
     @Override
     public void onRecognitionStart() {
+        mHanlder.sendEmptyMessage(MSG_RECG_START);
+        mTextBuilder.delete(0, mTextBuilder.length());
 
     }
 
     @Override
     public void onRecognition(char ch) {
+        mHanlder.sendMessage(mHanlder.obtainMessage(MSG_SET_RECG_TEXT, ch, 0));
+        mTextBuilder.append(ch);
 
+        if (mTextBuilder.toString().startsWith("4")) {
+            new Handler(Looper.getMainLooper()).post(new Runnable() {
+                @Override
+                public void run() {
+                    switchVisibility.setChecked(false);
+                    mSinVoicePlayer.stop();
+                    if(!isRegStart) {
+                        isRegStart = true;
+                        mRecognition.start();
+                    }
+                    mTextBuilder.delete(0, mTextBuilder.length());
+                }
+            });
+        }
     }
 
     @Override
     public void onRecognitionEnd() {
+        mHanlder.sendEmptyMessage(MSG_RECG_END);
+        Log.i(TAG, "onRecognitionEnd " + mTextBuilder.toString());
+
+        if (mTextBuilder.toString().startsWith("2")) {
+            new Handler(Looper.getMainLooper()).post(new Runnable() {
+                @Override
+                public void run() {
+                    String amount = mTextBuilder.toString().replace("3", "0").substring(1);
+                    Log.i(TAG, "Amount Received" + amount);
+                    Intent intent = new Intent(getActivity(), SummaryActivity.class);
+                    intent.putExtra("EXTRA_STATUS_MSG", "Received " + "₹ " + amount + " Successfully!");
+                    intent.putExtra("EXTRA_AMT", amount);
+                    startActivity(intent);
+                }
+            });
+        }
 
     }
 

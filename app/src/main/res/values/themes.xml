@@ -70,4 +70,9 @@
         <item name="android:lineSpacingExtra">10sp</item>
         <item name="android:textSize">24sp</item>
     </style>
+
+    <style name="mySwitchWalletTheme2" parent="ThemeOverlay.AppCompat.Light">
+        <item name="colorControlActivated">@color/color_dashboard_blue</item>
+        <item name="colorControlNormal">@color/switch_black</item>
+    </style>
 </resources>

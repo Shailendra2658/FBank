@@ -42,7 +42,6 @@ public class ReceiveActivity extends AppCompatActivity implements SinVoiceRecogn
     private StringBuilder mTextBuilder = new StringBuilder();
 
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -56,10 +55,10 @@ public class ReceiveActivity extends AppCompatActivity implements SinVoiceRecogn
 
         //final TextView playTextView = (TextView) findViewById(R.id.playtext);
         //TextView recognisedTextView = (TextView) findViewById(R.id.regtext);
-        txtStatus =  findViewById(R.id.tvFullTitle);
+        txtStatus = findViewById(R.id.tvFullTitle);
 
         txtStatus.setText("Waiting to receive...");
-        mHanlder = new Util.RegHandler(new TextView(this));
+        mHanlder = new RegHandler(new TextView(this));
 
         imgSuccess = findViewById(R.id.imageViewSuccess);
 
@@ -68,39 +67,6 @@ public class ReceiveActivity extends AppCompatActivity implements SinVoiceRecogn
                 .load(R.drawable.waiting)
                 .into(imgSuccess);
 
-
-
-       // Button playStart = (Button) this.findViewById(R.id.start_play);
-//        playStart.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View arg0) {
-
-//            }
-//        });
-
-       // Button playStop = (Button) this.findViewById(R.id.stop_play);
-        /*playStop.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View arg0) {
-                mSinVoicePlayer.stop();
-            }
-        });*/
-
-        /*Button recognitionStart = (Button) this.findViewById(R.id.start_reg);
-        recognitionStart.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View arg0) {
-                mRecognition.start();
-            }
-        });
-
-        Button recognitionStop = (Button) this.findViewById(R.id.stop_reg);
-        recognitionStop.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View arg0) {
-                mRecognition.stop();
-            }
-        });*/
     }
 
     @Override
@@ -108,7 +74,7 @@ public class ReceiveActivity extends AppCompatActivity implements SinVoiceRecogn
         super.onResume();
         mRecognition.start();
         // playTextView.setText(text);
-        //mSinVoicePlayer.play("111", true, 1000);
+      //  mSinVoicePlayer.play("1", true, 1000);
 
         /*final Handler handler = new Handler();
         handler.postDelayed(new Runnable() {
@@ -123,10 +89,10 @@ public class ReceiveActivity extends AppCompatActivity implements SinVoiceRecogn
     @Override
     protected void onPause() {
         super.onPause();
-        if(mRecognition!=null)
+        if (mRecognition != null)
             mRecognition.stop();
 
-        if(mSinVoicePlayer!=null)
+        if (mSinVoicePlayer != null)
             mSinVoicePlayer.stop();
     }
 
@@ -140,22 +106,13 @@ public class ReceiveActivity extends AppCompatActivity implements SinVoiceRecogn
         mTextBuilder.append(ch);
         isWaiting = true;
         mHanlder.sendMessage(mHanlder.obtainMessage(MSG_SET_RECG_TEXT, ch, 0));
+
     }
 
     @Override
     public void onRecognitionEnd() {
         mHanlder.sendEmptyMessage(MSG_RECG_END);
-            Log.i(TAG, "Amount "+mTextBuilder.toString().replace("3","0"));
-            new Handler(Looper.getMainLooper()).post(new Runnable() {
-                @Override
-                public void run() {
-                    String amount = mTextBuilder.toString().replace("3","0").substring(1);
-                    Intent intent = new Intent(ReceiveActivity.this, SummaryActivity.class);
-                    intent.putExtra("EXTRA_STATUS_MSG", "Received "+"₹ "+amount+" Successfully!");
-                    startActivity(intent);
-                }
-            });
-    //    }
+
     }
 
     @Override
@@ -167,4 +124,63 @@ public class ReceiveActivity extends AppCompatActivity implements SinVoiceRecogn
     public void onPlayEnd() {
         LogHelper.d(TAG, "stop play");
     }
+
+    public class RegHandler extends Handler {
+
+        public final static int MSG_SET_RECG_TEXT = 1;
+        public final static int MSG_RECG_START = 2;
+        public final static int MSG_RECG_END = 3;
+
+        private StringBuilder mTextBuilder = new StringBuilder();
+        private TextView mRecognisedTextView;
+
+        public RegHandler(TextView textView) {
+            mRecognisedTextView = textView;
+        }
+
+        @Override
+        public void handleMessage(Message msg) {
+            switch (msg.what) {
+                case MSG_SET_RECG_TEXT:
+                    char ch = (char) msg.arg1;
+                    mTextBuilder.append(ch);
+                    if (null != mRecognisedTextView) {
+                        //mRecognisedTextView.setText(mTextBuilder.toString());
+                    }
+
+                    Log.i(TAG, "Amount " + mTextBuilder.toString());
+                    if (!mTextBuilder.toString().equalsIgnoreCase("1") &&
+                            mTextBuilder.toString().startsWith("2") &&
+                            mTextBuilder.toString().length() > 3) {
+                        new Handler(Looper.getMainLooper()).post(new Runnable() {
+                            @Override
+                            public void run() {
+                                String amount = mTextBuilder.toString().replace("3", "0").substring(1);
+                                Intent intent = new Intent(ReceiveActivity.this, SummaryActivity.class);
+                                intent.putExtra("EXTRA_STATUS_MSG", "Received " + "₹ " + amount + " Successfully!");
+                                intent.putExtra("EXTRA_AMT", amount);
+                                startActivity(intent);
+                            }
+                        });
+                    } else if (mTextBuilder.toString().startsWith("1"))
+                        mTextBuilder.delete(0, mTextBuilder.length());
+                    else if (mTextBuilder.toString().startsWith("4")) {
+                        if (mSinVoicePlayer != null)
+                            mSinVoicePlayer.stop();
+                        mTextBuilder.delete(0, mTextBuilder.length());
+                    }
+                    break;
+
+                case MSG_RECG_START:
+                    mTextBuilder.delete(0, mTextBuilder.length());
+                    break;
+
+                case MSG_RECG_END:
+                    LogHelper.d(TAG, "recognition end");
+                    break;
+            }
+            super.handleMessage(msg);
+        }
+    }
+
 }

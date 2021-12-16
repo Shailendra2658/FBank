@@ -16,6 +16,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.sound.waves.LogHelper;
+import com.wibmothon.fbank.model.UserData;
 import com.wibmothon.fbank.ui.Dashboard;
 
 import java.util.HashMap;
@@ -86,7 +87,29 @@ public class Util {
                 public void onDataChange(DataSnapshot dataSnapshot) {
                     Log.d(TAG, "onDataChange Key " + dataSnapshot.getKey());
                     Log.d(TAG, "onDataChange Value " + dataSnapshot.getValue());
-                }
+                    //Value {Sbalance=5000, Rbalance=50000, balance=135000, Vbalance=80000}
+
+
+                        for (DataSnapshot dataSnapLangs : dataSnapshot.getChildren()) {
+                            if (dataSnapLangs.getKey() != null  && dataSnapLangs.getKey().equalsIgnoreCase("Sbalance")){
+                                UserData.sBal =  dataSnapLangs.getValue().toString();
+                            }else if (dataSnapLangs.getKey() != null  && dataSnapLangs.getKey().equalsIgnoreCase("Vbalance")){
+                                UserData.vBal =  dataSnapLangs.getValue().toString();
+                            }else if (dataSnapLangs.getKey() != null  && dataSnapLangs.getKey().equalsIgnoreCase("Rbalance")){
+                                UserData.rBal =  dataSnapLangs.getValue().toString();
+                            }else if (dataSnapLangs.getKey() != null  && dataSnapLangs.getKey().equalsIgnoreCase("balance")){
+                                UserData.balance =  dataSnapLangs.getValue().toString();
+                            }else  if (dataSnapLangs.getKey() != null  && dataSnapLangs.getKey().equalsIgnoreCase("Name")){
+                                UserData.name =  dataSnapLangs.getValue().toString();
+                            }else if (dataSnapLangs.getKey() != null  && dataSnapLangs.getKey().equalsIgnoreCase("Rname")){
+                                UserData.rName =  dataSnapLangs.getValue().toString();
+                            }else if (dataSnapLangs.getKey() != null  && dataSnapLangs.getKey().equalsIgnoreCase("SName")){
+                                UserData.sName =  dataSnapLangs.getValue().toString();
+                            }
+                        }
+
+
+        }
 
                 @Override
                 public void onCancelled(DatabaseError databaseError) {
@@ -107,14 +130,14 @@ public class Util {
      *
      * @return true if Fdb fetching success and false for if Fdb fetching failure
      */
-    public static boolean setDataFromFirebase(Context ctx, String balance) {
+    public static boolean setDataFromFirebase(Context ctx,String key, String balance) {
         Log.d(TAG, "GetFrm");
         final FirebaseApp mFirebaseApp = FirebaseApp.getInstance();
         database = FirebaseDatabase.getInstance(mFirebaseApp);
         DatabaseReference dbRef;
 
         dbRef = database.getReference("FMint");
-        dbRef.getRef().child("balance").setValue(balance)
+        dbRef.getRef().child(key).setValue(balance)
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void aVoid) {

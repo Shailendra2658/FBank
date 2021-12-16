@@ -138,6 +138,49 @@
                     android:visibility="visible" />
             </com.google.android.material.textfield.TextInputLayout>
 
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/txt_field_Daughter_name"
+                style="@style/TextInputLayoutStyle2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_8"
+                android:visibility="visible"
+                app:boxBackgroundColor="@color/disabled_color"
+                app:errorIconDrawable="@null"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txt_field_nick_name">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/txt_ndaughter_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/daug_name"
+                    android:imeOptions="actionNext"
+                    android:textColorHint="@color/color_hint"
+                    android:maxLength="25"
+                    android:nextFocusDown="@+id/btn_link_card"
+                    android:singleLine="true"
+                    android:textSize="@dimen/size_14sp"
+                    android:visibility="visible" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_reset"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/margin_15dp"
+                android:layout_marginTop="@dimen/margin_24"
+                app:cornerRadius="8dp"
+                android:text="@string/reset"
+                android:textAllCaps="false"
+                android:textSize="@dimen/size_18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/btn_link_card" />
+
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btn_link_card"
                 android:layout_width="match_parent"
@@ -150,7 +193,7 @@
                 android:textSize="@dimen/size_18sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/txt_field_nick_name" />
+                app:layout_constraintTop_toBottomOf="@+id/txt_field_Daughter_name" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>

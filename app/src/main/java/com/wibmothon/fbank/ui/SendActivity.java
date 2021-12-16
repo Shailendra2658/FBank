@@ -12,11 +12,13 @@ import com.sound.waves.LogHelper;
 import com.sound.waves.SinVoicePlayer;
 import com.sound.waves.SinVoiceRecognition;
 import com.wibmothon.fbank.R;
+import com.wibmothon.fbank.model.UserData;
 import com.wibmothon.fbank.util.Util;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import static com.sound.waves.Common.DEFAULT_CODE_BOOK;
+import static java.lang.Integer.*;
 
 public class SendActivity extends AppCompatActivity implements SinVoiceRecognition.Listener, SinVoicePlayer.Listener {
 
@@ -30,17 +32,28 @@ public class SendActivity extends AppCompatActivity implements SinVoiceRecogniti
     private Handler mHanlder;
     private SinVoicePlayer mSinVoicePlayer;
     private SinVoiceRecognition mRecognition;
-    private ImageView imgSend,imgBack;
-private EditText amount;
+    private ImageView imgSend, imgBack;
+    private EditText amount;
+    private TextView tvName, tvRecName, tvNumber, tvRecNumber;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_send);
 
-        imgSend =  findViewById(R.id.imgSend);
-        imgBack =  findViewById(R.id.imageViewBack);
-        amount =  findViewById(R.id.editTextAmt);
+        imgSend = findViewById(R.id.imgSend);
+        imgBack = findViewById(R.id.imageViewBack);
+        amount = findViewById(R.id.editTextAmt);
+        tvName = findViewById(R.id.tvName);
+        tvRecName = findViewById(R.id.tvRecName);
+        tvNumber = findViewById(R.id.tvNumber);
+        tvRecNumber = findViewById(R.id.tvRecNumber);
 
+
+        tvName.setText(UserData.name);
+        tvRecName.setText(UserData.sName);
+        tvNumber.setText("Balance: ₹"+UserData.vBal);
+        //tvRecNumber.setText(UserData.sBal);
 
 
         mSinVoicePlayer = new SinVoicePlayer(DEFAULT_CODE_BOOK);
@@ -51,7 +64,7 @@ private EditText amount;
 
         mHanlder = new Util.RegHandler(new TextView(this));
 
-
+        mSinVoicePlayer.play("4", false, 1000);
 
         Glide.with(this)
                 .asGif()
@@ -59,7 +72,9 @@ private EditText amount;
                 .into(imgSend);
 
         imgSend.setOnClickListener(view -> {
+
             String amountStr = amount.getText().toString();
+            UpdateBal();
             Intent intent = new Intent(this, SummaryActivity.class);
             intent.putExtra("EXTRA_STATUS_MSG", "Sent Successfully!");
             intent.putExtra("EXTRA_AMT", amountStr);
@@ -69,43 +84,33 @@ private EditText amount;
         imgBack.setOnClickListener(view -> {
             finish();
         });
-       /* final TextView playTextView = (TextView) findViewById(R.id.playtext);
-        TextView recognisedTextView = (TextView) findViewById(R.id.regtext);
-        mHanlder = new RegHandler(recognisedTextView);
 
-        Button playStart = (Button) this.findViewById(R.id.start_play);
-        playStart.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View arg0) {
-                String text = genText(7);
-                playTextView.setText(text);
-                mSinVoicePlayer.play(text, true, 1000);
-            }
-        });
 
-        Button playStop = (Button) this.findViewById(R.id.stop_play);
-        playStop.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View arg0) {
-                mSinVoicePlayer.stop();
-            }
-        });
+    }
 
-        Button recognitionStart = (Button) this.findViewById(R.id.start_reg);
-        recognitionStart.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View arg0) {
-                mRecognition.start();
-            }
-        });
+    private void UpdateBal() {
+        String amountStr = amount.getText().toString();
+        String amts = amountStr;
+        int vBals = parseInt(UserData.vBal) -  parseInt(amts);
+        UserData.vBal =  vBals+"";
+        Util.setDataFromFirebase(this, "Vbalance", UserData.vBal);
 
-        Button recognitionStop = (Button) this.findViewById(R.id.stop_reg);
-        recognitionStop.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View arg0) {
-                mRecognition.stop();
-            }
-        });*/
+        if(tvRecName.getText().toString().equalsIgnoreCase(UserData.rName)){
+            int rBals = parseInt(UserData.rBal) +  parseInt(amts);
+            UserData.rBal =  rBals+"";
+            Util.setDataFromFirebase(this, "Rbalance", UserData.rBal);
+
+        }else if(tvRecName.getText().toString().equalsIgnoreCase(UserData.sName)){
+            int sBals = parseInt(UserData.sBal) +  parseInt(amts);
+            UserData.sBal =  sBals+"";
+            Util.setDataFromFirebase(this, "Sbalance", UserData.sBal);
+
+        }
+            int balance = parseInt(UserData.vBal) + parseInt(UserData.rBal)  + parseInt(UserData.sBal);
+
+        UserData.balance  = balance+"";
+        Util.setDataFromFirebase(this, "balance", UserData.balance);
+
     }
 
     @Override
@@ -129,10 +134,10 @@ private EditText amount;
     @Override
     protected void onPause() {
         super.onPause();
-        if(mRecognition!=null)
-        mRecognition.stop();
+        if (mRecognition != null)
+            mRecognition.stop();
 
-        if(mSinVoicePlayer!=null)
+        if (mSinVoicePlayer != null)
             mSinVoicePlayer.stop();
     }
 

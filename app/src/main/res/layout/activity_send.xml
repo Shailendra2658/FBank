@@ -15,24 +15,31 @@
         android:layout_centerInParent="true"
         android:padding="@dimen/margin_16"
         android:src="@drawable/ic_action_arrow_back" />
-
+    <ImageView
+        android:id="@+id/imgSender"
+        android:layout_width="@dimen/margin_50dp"
+        android:layout_height="@dimen/margin_50dp"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="@dimen/margin_8"
+        android:src="@drawable/person_icon"
+        app:layout_constraintStart_toEndOf="@+id/imageViewBack"
+        app:layout_constraintTop_toTopOf="parent"/>
     <LinearLayout
         android:id="@+id/linearProfile"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:padding="@dimen/margin_16"
-        android:layout_marginStart="@dimen/margin_12dp"
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/imageViewBack"
+        app:layout_constraintStart_toEndOf="@+id/imgSender"
         app:layout_constraintTop_toTopOf="parent">
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/tvName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Ravi"
+            android:text="Vijay"
             android:textColor="@color/bg_txt_color_black"
             android:textSize="@dimen/text_size_button" />
 
@@ -132,7 +139,7 @@
             android:id="@+id/tvRecName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Andy"
+            android:text="Shilpa"
             android:textColor="@color/bg_txt_color_black"
             android:textSize="@dimen/text_size_button" />
 

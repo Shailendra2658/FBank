@@ -15,6 +15,7 @@ import com.sound.waves.LogHelper;
 import com.sound.waves.SinVoicePlayer;
 import com.sound.waves.SinVoiceRecognition;
 import com.wibmothon.fbank.R;
+import com.wibmothon.fbank.model.UserData;
 import com.wibmothon.fbank.ui.fragment.LiquidCashFragment;
 import com.wibmothon.fbank.util.Util;
 
@@ -22,6 +23,7 @@ import static com.sound.waves.Common.DEFAULT_CODE_BOOK;
 import static com.wibmothon.fbank.util.Util.RegHandler.MSG_RECG_END;
 import static com.wibmothon.fbank.util.Util.RegHandler.MSG_RECG_START;
 import static com.wibmothon.fbank.util.Util.RegHandler.MSG_SET_RECG_TEXT;
+import static java.lang.Integer.parseInt;
 
 
 public class SummaryActivity extends AppCompatActivity implements SinVoiceRecognition.Listener, SinVoicePlayer.Listener {
@@ -32,6 +34,8 @@ public class SummaryActivity extends AppCompatActivity implements SinVoiceRecogn
     private SinVoicePlayer mSinVoicePlayer;
     private SinVoiceRecognition mRecognition;
     private Handler mHanlder;
+    String msg ;
+    String amt ;
 
 
     @Override
@@ -50,12 +54,13 @@ public class SummaryActivity extends AppCompatActivity implements SinVoiceRecogn
 
         mHanlder = new Util.RegHandler(new TextView(this));
 
-        String msg = getIntent().getStringExtra("EXTRA_STATUS_MSG");
-        String amt = getIntent().getStringExtra("EXTRA_AMT");
+         msg = getIntent().getStringExtra("EXTRA_STATUS_MSG");
+         amt = getIntent().getStringExtra("EXTRA_AMT");
 
 
         txtMsg.setText(msg);
 
+        //calculateBal();
         Glide.with(this)
                 .asGif()
                 .load(R.drawable.sent_small)
@@ -66,6 +71,8 @@ public class SummaryActivity extends AppCompatActivity implements SinVoiceRecogn
             Log.i(TAG, "AmountSending "+amts);
 
             mSinVoicePlayer.play(amts, true, 1000);
+        }else{
+            calculateBal();
         }
 
 
@@ -80,6 +87,29 @@ public class SummaryActivity extends AppCompatActivity implements SinVoiceRecogn
                 startActivity(intent);
             }
         }, 5000);
+    }
+
+    private void calculateBal() {
+            String amts = amt;
+            int vBals = parseInt(UserData.vBal) -  parseInt(amts);
+            UserData.vBal =  vBals+"";
+            Util.setDataFromFirebase(this, "Vbalance", UserData.vBal);
+
+           // if(tvRecName.getText().toString().equalsIgnoreCase(UserData.rName)){
+                int rBals = parseInt(UserData.rBal) +  parseInt(amts);
+                UserData.rBal =  rBals+"";
+                Util.setDataFromFirebase(this, "Rbalance", UserData.rBal);
+
+            /*}else if(tvRecName.getText().toString().equalsIgnoreCase(UserData.sName)){
+                int sBals = parseInt(UserData.sBal) +  parseInt(amts);
+                UserData.sBal =  sBals+"";
+                Util.setDataFromFirebase(this, "Sbalance", UserData.sBal);
+
+            }*/
+            int balance = parseInt(UserData.vBal) + parseInt(UserData.rBal)  + parseInt(UserData.sBal);
+
+            UserData.balance  = balance+"";
+            Util.setDataFromFirebase(this, "balance", UserData.balance);
     }
 
 

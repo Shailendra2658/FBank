@@ -12,4 +12,6 @@
     <string name="hint_zero">0</string>
     <string name="label_send_money">Send Money</string>
     <string name="amount_sent_successfully">Sent Successfully!</string>
+    <string name="reset">Reset</string>
+    <string name="daug_name">Daughter Name</string>
 </resources>

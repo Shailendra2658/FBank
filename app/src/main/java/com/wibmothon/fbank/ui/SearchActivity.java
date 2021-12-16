@@ -76,49 +76,16 @@ public class SearchActivity extends AppCompatActivity implements SinVoiceRecogni
         linearPerson.setOnClickListener(view -> {
             startActivity(new Intent(this, SendActivity.class));
         });
-
-        // Button playStart = (Button) this.findViewById(R.id.start_play);
-//        playStart.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View arg0) {
-
-//            }
-//        });
-
-        // Button playStop = (Button) this.findViewById(R.id.stop_play);
-        /*playStop.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View arg0) {
-                mSinVoicePlayer.stop();
-            }
-        });*/
-
-        /*Button recognitionStart = (Button) this.findViewById(R.id.start_reg);
-        recognitionStart.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View arg0) {
-                mRecognition.start();
-            }
-        });
-
-        Button recognitionStop = (Button) this.findViewById(R.id.stop_reg);
-        recognitionStop.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View arg0) {
-                mRecognition.stop();
-            }
-        });*/
     }
 
     @Override
     protected void onResume() {
         super.onResume();
         mRecognition.start();
-        String text = genText(7);
         // playTextView.setText(text);
         // mSinVoicePlayer.play(text, true, 1000);
 
-        final Handler handler = new Handler();
+       /* final Handler handler = new Handler();
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
@@ -136,9 +103,9 @@ public class SearchActivity extends AppCompatActivity implements SinVoiceRecogni
                 linearNonPerson.setVisibility(View.VISIBLE);
                 linearNonFamily.setVisibility(View.VISIBLE);
             }
-        }, 5000);
+        }, 5000);*/
 
-       /* try {
+        try {
 
             ScheduledExecutorService executor =
                     Executors.newSingleThreadScheduledExecutor();
@@ -161,7 +128,7 @@ public class SearchActivity extends AppCompatActivity implements SinVoiceRecogni
             executor.scheduleAtFixedRate(periodicTask, 0, 2, TimeUnit.SECONDS);
         } catch (Exception ex) {
             Log.e(TAG, "Error " + ex);
-        }*/
+        }
     }
 
     @Override
@@ -172,21 +139,6 @@ public class SearchActivity extends AppCompatActivity implements SinVoiceRecogni
 
         if(mSinVoicePlayer!=null)
             mSinVoicePlayer.stop();
-    }
-
-    private String genText(int count) {
-        StringBuilder sb = new StringBuilder();
-        int pre = 0;
-        while (count > 0) {
-            int x = (int) (Math.random() * MAX_NUMBER + 1);
-            if (Math.abs(x - pre) > 0) {
-                sb.append(x);
-                --count;
-                pre = x;
-            }
-        }
-
-        return sb.toString();
     }
 
 
@@ -200,26 +152,6 @@ public class SearchActivity extends AppCompatActivity implements SinVoiceRecogni
     public void onRecognition(char ch) {
         mTextBuilder.append(ch);
         mHanlder.sendMessage(mHanlder.obtainMessage(MSG_SET_RECG_TEXT, ch, 0));
-        if (mTextBuilder.toString().equalsIgnoreCase("111")) {
-            mTextBuilder.delete(0, mTextBuilder.length());//Clear Builder on finding
-            user1 = true;
-            new Handler(Looper.getMainLooper()).post(new Runnable() {
-                @Override
-                public void run() {
-                    setViewVisiblity(linearPerson, linearFamily, View.VISIBLE);
-                }
-            });
-
-        } else if (mTextBuilder.toString().equalsIgnoreCase("333")) {
-            mTextBuilder.delete(0, mTextBuilder.length());//Clear Builder on finding
-            user2 = true;
-            new Handler(Looper.getMainLooper()).post(new Runnable() {
-                @Override
-                public void run() {
-                    setViewVisiblity(linearNonPerson, linearNonFamily, View.VISIBLE);
-                }
-            });
-        }
     }
 
     private void setViewVisiblity(LinearLayout linearPerson, LinearLayout linearFamily, int visibility) {
@@ -230,6 +162,26 @@ public class SearchActivity extends AppCompatActivity implements SinVoiceRecogni
     @Override
     public void onRecognitionEnd() {
         mHanlder.sendEmptyMessage(MSG_RECG_END);
+        if (mTextBuilder.toString().equalsIgnoreCase("1")) {
+            mTextBuilder.delete(0, mTextBuilder.length());//Clear Builder on finding
+            user1 = true;
+            new Handler(Looper.getMainLooper()).post(new Runnable() {
+                @Override
+                public void run() {
+                    setViewVisiblity(linearPerson, linearFamily, View.VISIBLE);
+                }
+            });
+
+        } else if (mTextBuilder.toString().equalsIgnoreCase("3")) {
+            mTextBuilder.delete(0, mTextBuilder.length());//Clear Builder on finding
+            user2 = true;
+            new Handler(Looper.getMainLooper()).post(new Runnable() {
+                @Override
+                public void run() {
+                    setViewVisiblity(linearNonPerson, linearNonFamily, View.VISIBLE);
+                }
+            });
+        }
     }
 
     @Override
