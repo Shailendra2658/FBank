@@ -71,7 +71,7 @@ public class SummaryActivity extends AppCompatActivity implements SinVoiceRecogn
             Log.i(TAG, "AmountSending "+amts);
 
             mSinVoicePlayer.play(amts, true, 1000);
-        }else{
+        }else if(amt!=null && amt.isEmpty()){
             calculateBal();
         }
 
@@ -90,15 +90,16 @@ public class SummaryActivity extends AppCompatActivity implements SinVoiceRecogn
     }
 
     private void calculateBal() {
+        try {
             String amts = amt;
-            int vBals = parseInt(UserData.vBal) -  parseInt(amts);
-            UserData.vBal =  vBals+"";
+            int vBals = parseInt(UserData.vBal) - parseInt(amts);
+            UserData.vBal = vBals + "";
             Util.setDataFromFirebase(this, "Vbalance", UserData.vBal);
 
-           // if(tvRecName.getText().toString().equalsIgnoreCase(UserData.rName)){
-                int rBals = parseInt(UserData.rBal) +  parseInt(amts);
-                UserData.rBal =  rBals+"";
-                Util.setDataFromFirebase(this, "Rbalance", UserData.rBal);
+            // if(tvRecName.getText().toString().equalsIgnoreCase(UserData.rName)){
+            int rBals = parseInt(UserData.rBal) + parseInt(amts);
+            UserData.rBal = rBals + "";
+            Util.setDataFromFirebase(this, "Rbalance", UserData.rBal);
 
             /*}else if(tvRecName.getText().toString().equalsIgnoreCase(UserData.sName)){
                 int sBals = parseInt(UserData.sBal) +  parseInt(amts);
@@ -106,10 +107,13 @@ public class SummaryActivity extends AppCompatActivity implements SinVoiceRecogn
                 Util.setDataFromFirebase(this, "Sbalance", UserData.sBal);
 
             }*/
-            int balance = parseInt(UserData.vBal) + parseInt(UserData.rBal)  + parseInt(UserData.sBal);
+            int balance = parseInt(UserData.vBal) + parseInt(UserData.rBal) + parseInt(UserData.sBal);
 
-            UserData.balance  = balance+"";
+            UserData.balance = balance + "";
             Util.setDataFromFirebase(this, "balance", UserData.balance);
+        }catch(Exception ex){
+            Log.e(TAG,"Error "+ex);
+        }
     }
 
 
