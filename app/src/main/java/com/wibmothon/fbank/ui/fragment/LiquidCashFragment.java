@@ -60,7 +60,7 @@ public class LiquidCashFragment extends Fragment implements SinVoiceRecognition.
         payTitle[0] = "View All >";
         dashboardDrawable[0] = R.drawable.ic_lc3;*/
 
-    String[] LCTitle = {"Family Mint wallet", "Bank Accounts",
+    String[] LCTitle = {"FamilyMint wallet", "Bank Accounts",
             "Spend Analayzer", "Split Pay", "Bill Payments"};
 
 

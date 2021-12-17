@@ -44,7 +44,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:fontFamily="@font/poppins_semibold"
-            android:text="₹ 12 Lacs "
+            android:text="₹ 10 Lacs "
             android:textColor="@color/colorPrimary"
             android:textSize="16sp"
             android:textStyle="bold"

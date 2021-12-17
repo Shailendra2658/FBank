@@ -27,11 +27,7 @@ e
 5app/src/main/java/com/wibmothon/fbank/util/Model.java,1\a\1a6b0327c5f8c3b56d59e7e3a2560bf493a04c90
 e
 5app/src/main/java/com/wibmothon/fbank/util/Utils.java,a\5\a5b42033390bc747216b8bba0ee3df4c18b53f09
-t
-Dapp/src/main/java/com/wibmothon/fbank/adapter/LiquidCashAdapter.java,8\3\832442f8f23a7801cab7ae08b7ba13c72439c0c2
 x
 Happ/src/main/java/com/wibmothon/fbank/ui/fragment/AccountsFragments.java,5\a\5a77ff393ac9896dc8fdd922aad1fc13dea154dc
-w
-Gapp/src/main/java/com/wibmothon/fbank/ui/fragment/AdvisoryFragment.java,6\4\64460d0e266a8dc2b75414bf731420e59832e7ac
 y
 Iapp/src/main/java/com/wibmothon/fbank/ui/fragment/InvestmentFragment.java,6\d\6d11a2d97dde11c1e76e1f511e57b2401a7c51c0
