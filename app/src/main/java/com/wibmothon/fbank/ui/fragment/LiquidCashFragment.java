@@ -96,6 +96,15 @@ public class LiquidCashFragment extends Fragment implements SinVoiceRecognition.
     ImageView switchVisibilityImg;
 
     boolean imageViewClicked = true;
+    String extra;
+
+    public LiquidCashFragment(String hasExtra) {
+        this.extra = hasExtra;
+    }
+
+    public LiquidCashFragment() {
+
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -110,10 +119,11 @@ public class LiquidCashFragment extends Fragment implements SinVoiceRecognition.
         switchVisibility = view.findViewById(R.id.switchVisibility);
         memberTv = view.findViewById(R.id.memberTv);
         memberTvCircle = view.findViewById(R.id.memberTvCircle);
+
         downArrowMember = view.findViewById(R.id.downArrowMember);
         switchVisibilityImg = view.findViewById(R.id.switchVisibilityImg);
 
-        switchVisibility.setOnCheckedChangeListener((compoundButton, b) -> {
+       switchVisibility.setOnCheckedChangeListener((compoundButton, b) -> {
             if (b)
                 mSinVoicePlayer.play("1", true, 1000);
             else {
@@ -131,7 +141,7 @@ public class LiquidCashFragment extends Fragment implements SinVoiceRecognition.
                 if (imageViewClicked) {
                     switchVisibilityImg.setImageResource(R.drawable.ic_lc7);
                     imageViewClicked = false;
-                    mSinVoicePlayer.play("1", true, 1000);
+                    mSinVoicePlayer.play("3", true, 1000);
                 } else {
                     switchVisibilityImg.setImageResource(R.drawable.ic_lc8);
                     imageViewClicked = true;
@@ -161,10 +171,16 @@ public class LiquidCashFragment extends Fragment implements SinVoiceRecognition.
 
         lCashModels = new ArrayList<>();
 
-        memberTv.setText("Vijay P");
-        memberTvCircle.setText("VP");
+        if(extra!=null && !extra.isEmpty()){
+            memberTv.setText(UserData.sName);
+            memberTvCircle.setText(UserData.sName.toCharArray()[0]+""+ UserData.sName.toCharArray()[UserData.sName.length()-1]);
 
-        String[] LCSubTitle1 = {" ₹ " + UserData.vBal, "3 Savings A/c & 1 Current A/c",
+        }else {
+            memberTv.setText(UserData.name);
+            memberTvCircle.setText(UserData.name.toCharArray()[0] + "" + UserData.name.toCharArray()[UserData.name.length() - 1]);
+        }
+
+        String[] LCSubTitle1 = {" ₹ " + ((extra!=null  && !extra.isEmpty())?UserData.vBal:UserData.sBal), "3 Savings A/c & 1 Current A/c",
                 "Last Month - Rs 30 K",
                 "Total Balance - Rs 10 L",
                 "Electricity Bill - Rs 2 K"};
@@ -335,11 +351,16 @@ public class LiquidCashFragment extends Fragment implements SinVoiceRecognition.
         ImageView downArrow2ImgView = dialog.findViewById(R.id.downArrow2ImgView);
         ImageView downArrow3ImgView = dialog.findViewById(R.id.downArrow3ImgView);
 
+        ((TextView)  dialog.findViewById(R.id.member1Tv)).setText(UserData.name);
+        ((TextView)  dialog.findViewById(R.id.member2Tv)).setText(UserData.sName);
+        ((TextView)  dialog.findViewById(R.id.member3Tv)).setText(UserData.rName);
+
+
         downArrow1ImgView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                memberTv.setText("Vijay P");
-                memberTvCircle.setText("VP");
+                memberTv.setText(UserData.name);
+                memberTvCircle.setText(UserData.name.toCharArray()[0]+""+ UserData.name.toCharArray()[UserData.name.length()-1]);
 
                 Log.d("userDataValues", "UserData " + UserData.vBal);
 
@@ -376,8 +397,9 @@ public class LiquidCashFragment extends Fragment implements SinVoiceRecognition.
         downArrow2ImgView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                memberTv.setText("Shilpa P");
-                memberTvCircle.setText("SP");
+                memberTv.setText(UserData.sName);
+                memberTvCircle.setText(UserData.sName.toCharArray()[0]+""+ UserData.sName.toCharArray()[UserData.sName.length()-1]);
+
                 Log.d("userDataValues", "UserData " + UserData.sBal);
 
                 lCashModels.clear();
@@ -413,8 +435,9 @@ public class LiquidCashFragment extends Fragment implements SinVoiceRecognition.
         downArrow3ImgView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                memberTv.setText("Rama N");
-                memberTvCircle.setText("RN");
+                memberTv.setText(UserData.rName);
+                memberTvCircle.setText(UserData.rName.toCharArray()[0]+""+ UserData.rName.toCharArray()[UserData.rName.length()-1]);
+
                 Log.d("userDataValues", "UserData " + UserData.rBal);
 
                 lCashModels.clear();

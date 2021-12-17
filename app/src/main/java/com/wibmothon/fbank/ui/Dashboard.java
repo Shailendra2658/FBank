@@ -30,6 +30,7 @@ import androidx.fragment.app.FragmentManager;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.wibmothon.fbank.R;
+import com.wibmothon.fbank.model.UserData;
 import com.wibmothon.fbank.ui.fragment.AccountsFragments;
 import com.wibmothon.fbank.ui.fragment.AdvisoryFragment;
 import com.wibmothon.fbank.ui.fragment.GoalsFragment;
@@ -90,7 +91,7 @@ public class Dashboard extends AppCompatActivity implements BottomNavigationView
         Util.getDataFromFirebase();
 
         if (getIntent().hasExtra("EXTRA_CASH")) {
-            LiquidCashFragment cashManagementFragment = new LiquidCashFragment();
+            LiquidCashFragment cashManagementFragment = new LiquidCashFragment("hasExtra");
             getSupportFragmentManager().beginTransaction().replace(R.id.flFragment, cashManagementFragment).commit();
         }
     }
@@ -141,6 +142,11 @@ public class Dashboard extends AppCompatActivity implements BottomNavigationView
         ImageView downArrow1ImgView = dialog.findViewById(R.id.downArrow1ImgView);
         ImageView downArrow2ImgView = dialog.findViewById(R.id.downArrow2ImgView);
         ImageView downArrow3ImgView = dialog.findViewById(R.id.downArrow3ImgView);
+
+        ((TextView) dialog.findViewById(R.id.member1Tv)).setText(UserData.name);
+        ((TextView) dialog.findViewById(R.id.member2Tv)).setText(UserData.sName);
+        ((TextView) dialog.findViewById(R.id.member3Tv)).setText(UserData.rName);
+
 
         downArrow1ImgView.setOnClickListener(v -> dialog.dismiss());
         downArrow2ImgView.setOnClickListener(v -> dialog.dismiss());

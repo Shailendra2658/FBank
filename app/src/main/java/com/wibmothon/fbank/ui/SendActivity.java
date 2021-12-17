@@ -91,7 +91,7 @@ public class SendActivity extends AppCompatActivity implements SinVoiceRecogniti
     private void UpdateBal() {
         String amountStr = amount.getText().toString();
         String amts = amountStr;
-        int vBals = parseInt(UserData.vBal) -  parseInt(amts);
+        int vBals = parseInt(UserData.vBal) -  parseInt(amts.trim());
         UserData.vBal =  vBals+"";
         Util.setDataFromFirebase(this, "Vbalance", UserData.vBal);
 

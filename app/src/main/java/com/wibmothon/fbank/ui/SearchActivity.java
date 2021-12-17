@@ -1,5 +1,8 @@
 package com.wibmothon.fbank.ui;
 
+import android.app.Activity;
+import android.app.Dialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
@@ -7,6 +10,7 @@ import android.os.Looper;
 import android.os.Message;
 import android.util.Log;
 import android.view.View;
+import android.view.Window;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -16,13 +20,18 @@ import com.sound.waves.LogHelper;
 import com.sound.waves.SinVoicePlayer;
 import com.sound.waves.SinVoiceRecognition;
 import com.wibmothon.fbank.R;
+import com.wibmothon.fbank.adapter.LiquidCashAdapter;
+import com.wibmothon.fbank.model.LCashModel;
+import com.wibmothon.fbank.model.UserData;
 import com.wibmothon.fbank.util.Util;
 
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
 
 import static android.view.View.GONE;
 import static com.sound.waves.Common.DEFAULT_CODE_BOOK;
@@ -76,6 +85,11 @@ public class SearchActivity extends AppCompatActivity implements SinVoiceRecogni
         linearPerson.setOnClickListener(view -> {
             startActivity(new Intent(this, SendActivity.class));
         });
+
+        linearNonPerson.setOnClickListener(view -> {
+            showDialog(this);
+        });
+
     }
 
     @Override
@@ -192,5 +206,24 @@ public class SearchActivity extends AppCompatActivity implements SinVoiceRecogni
     @Override
     public void onPlayEnd() {
         LogHelper.d(TAG, "stop play");
+    }
+
+
+    public void showDialog(Activity activity) {
+        new AlertDialog.Builder(activity)
+                .setTitle("Alert")
+                .setMessage("You have selected Non family member, do you want to continue?")
+
+                // Specifying a listener allows you to take an action before dismissing the dialog.// The dialog is automatically dismissed when a dialog button is clicked.
+                .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        // Continue with delete operation
+                    }
+                })
+
+                // A null listener allows the button to dismiss the dialog and take no further action.
+                .setNegativeButton(android.R.string.no, null)
+                .setIcon(R.drawable.ic_info)
+                .show();
     }
 }

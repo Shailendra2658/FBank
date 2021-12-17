@@ -77,8 +77,9 @@ public class AccountsFragments extends Fragment {
         memberTvCircle = view.findViewById(R.id.memberTvCircle);
         downArrowMember = view.findViewById(R.id.downArrowMember);
 
-        memberTv.setText("Vijay P");
-        memberTvCircle.setText("VP");
+        memberTv.setText(UserData.name);
+        memberTvCircle.setText(UserData.name.toCharArray()[0]+""+ UserData.name.toCharArray()[UserData.name.length()-1]);
+
 
         downArrowMember.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -101,11 +102,16 @@ public class AccountsFragments extends Fragment {
         ImageView downArrow2ImgView = dialog.findViewById(R.id.downArrow2ImgView);
         ImageView downArrow3ImgView = dialog.findViewById(R.id.downArrow3ImgView);
 
+        ((TextView)  dialog.findViewById(R.id.member1Tv)).setText(UserData.name);
+        ((TextView)  dialog.findViewById(R.id.member2Tv)).setText(UserData.sName);
+        ((TextView)  dialog.findViewById(R.id.member3Tv)).setText(UserData.rName);
+
         downArrow1ImgView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                memberTv.setText("Vijay P");
-                memberTvCircle.setText("VP");
+                memberTv.setText(UserData.name);
+                memberTvCircle.setText(UserData.name.toCharArray()[0]+""+ UserData.name.toCharArray()[UserData.name.length()-1]);
+
                 dialog.dismiss();
             }
         });
@@ -113,8 +119,9 @@ public class AccountsFragments extends Fragment {
         downArrow2ImgView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                memberTv.setText("Shilpa P");
-                memberTvCircle.setText("SP");
+                memberTv.setText(UserData.sName);
+                memberTvCircle.setText(UserData.sName.toCharArray()[0]+""+ UserData.sName.toCharArray()[UserData.sName.length()-1]);
+
                 dialog.dismiss();
             }
         });
@@ -122,8 +129,9 @@ public class AccountsFragments extends Fragment {
         downArrow3ImgView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                memberTv.setText("Rama N");
-                memberTvCircle.setText("RN");
+                memberTv.setText(UserData.rName);
+                memberTvCircle.setText(UserData.rName.toCharArray()[0]+""+ UserData.rName.toCharArray()[UserData.rName.length()-1]);
+
                 Log.d("userDataValues", "UserData " + UserData.rBal);
                 dialog.dismiss();
             }
