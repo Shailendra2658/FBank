@@ -7,7 +7,7 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="colorPrimary">#673dda</color>
+    <color name="colorPrimary">#724BDC</color>
     <color name="colorAccent">#705C34</color>
     <color name="icActive">#FFFFFFFF</color>
     <color name="icFocused">#DDFFFFFF</color>
@@ -63,7 +63,7 @@
     <color name="contact_bg">#88B6E2</color>
     <color name="contact_stroke">#0E6DB7</color>
     <item name="blue" type="color">#E4EAF7</item>
-    <item name="purple" type="color">#673dda</item>
+    <item name="purple" type="color">#643AD5</item>
     <item name="green" type="color">#E7F2E4</item>
     <item name="yellow" type="color">#F4F4E4</item>
     <item name="red" type="color">#F4E4E4</item>

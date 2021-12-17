@@ -77,7 +77,7 @@ public class HomeFragment extends Fragment {
         recyclerView.setAdapter(adapter);
 
         InvestmentFragment investmentFragment = new InvestmentFragment();
-        LiquidCashFragment cashManagementFragment = new LiquidCashFragment();
+        LiquidCashFragment cashManagementFragment = new LiquidCashFragment("Vijay");
         LiabilityFragment liabilityFragment = new LiabilityFragment();
 
         recyclerView.addOnItemTouchListener(new DashboardRecyclerViewAdapter.RecyclerTouchListener(getActivity(), recyclerView, new DashboardRecyclerViewAdapter.ClickListener() {

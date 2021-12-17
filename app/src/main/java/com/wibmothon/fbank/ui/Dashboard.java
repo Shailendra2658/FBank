@@ -91,7 +91,7 @@ public class Dashboard extends AppCompatActivity implements BottomNavigationView
         Util.getDataFromFirebase();
 
         if (getIntent().hasExtra("EXTRA_CASH")) {
-            LiquidCashFragment cashManagementFragment = new LiquidCashFragment("hasExtra");
+            LiquidCashFragment cashManagementFragment = new LiquidCashFragment(getIntent().getStringExtra("EXTRA_CASH"));
             getSupportFragmentManager().beginTransaction().replace(R.id.flFragment, cashManagementFragment).commit();
         }
     }

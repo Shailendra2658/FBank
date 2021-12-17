@@ -77,7 +77,7 @@ public class SummaryActivity extends AppCompatActivity implements SinVoiceRecogn
 
 
         Intent intent = new Intent(this, Dashboard.class);
-        intent.putExtra("EXTRA_CASH", "gototCash");
+        intent.putExtra("EXTRA_CASH", msg.startsWith("Sent")?"Vijay":"Shilpa");
         final Handler handler = new Handler();
         handler.postDelayed(new Runnable() {
             @Override
