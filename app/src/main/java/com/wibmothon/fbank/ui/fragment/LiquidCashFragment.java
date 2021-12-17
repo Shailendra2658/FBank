@@ -171,7 +171,7 @@ public class LiquidCashFragment extends Fragment implements SinVoiceRecognition.
 
         lCashModels = new ArrayList<>();
 
-        if(extra!=null && !extra.isEmpty() && extra.startsWith("Vijay")){
+        if(extra!=null && !extra.isEmpty() && extra.startsWith("Mahesh")){
             memberTv.setText(UserData.name);
             memberTvCircle.setText(UserData.name.toCharArray()[0]+""+ UserData.name.toCharArray()[UserData.name.length()-1]);
 
@@ -180,7 +180,7 @@ public class LiquidCashFragment extends Fragment implements SinVoiceRecognition.
             memberTvCircle.setText(UserData.sName.toCharArray()[0] + "" + UserData.sName.toCharArray()[UserData.sName.length() - 1]);
         }
 
-        String[] LCSubTitle1 = {" ₹ " + ((extra!=null  && !extra.isEmpty() && extra.startsWith("Vijay"))?UserData.vBal:UserData.sBal), "3 Savings A/c & 1 Current A/c",
+        String[] LCSubTitle1 = {" ₹ " + ((extra!=null  && !extra.isEmpty() && extra.startsWith("Mahesh"))?UserData.vBal:UserData.sBal), "3 Savings A/c & 1 Current A/c",
                 "Last Month - Rs 30 K",
                 "Total Balance - Rs 10 L",
                 "Electricity Bill - Rs 2 K"};

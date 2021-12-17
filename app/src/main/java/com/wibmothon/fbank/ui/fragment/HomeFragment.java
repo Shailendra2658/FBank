@@ -30,9 +30,9 @@ public class HomeFragment extends Fragment {
 
     RecyclerView recyclerView;
     String[] titleStr = {"Investments", "Insurance", "Liquid Cash", "Liability"};
-    String[] subTitleStr = {"View your total investments & grow your money",
-            "Build a safety net for you & your loved ones",
-            "Manage your bills and other expenses",
+    String[] subTitleStr = {"View your total investments\n& grow your money",
+            "Build a safety net for you &\nyour loved ones",
+            "Manage your bills and other\nexpenses",
             "Manage your loan & EMIs"};
 
     String[] titleSubText1 = {"₹ 11 L", "2 Insurance", "₹ 5 L", "₹ 2 L"};
@@ -77,7 +77,7 @@ public class HomeFragment extends Fragment {
         recyclerView.setAdapter(adapter);
 
         InvestmentFragment investmentFragment = new InvestmentFragment();
-        LiquidCashFragment cashManagementFragment = new LiquidCashFragment("Vijay");
+        LiquidCashFragment cashManagementFragment = new LiquidCashFragment("Mahesh");
         LiabilityFragment liabilityFragment = new LiabilityFragment();
 
         recyclerView.addOnItemTouchListener(new DashboardRecyclerViewAdapter.RecyclerTouchListener(getActivity(), recyclerView, new DashboardRecyclerViewAdapter.ClickListener() {

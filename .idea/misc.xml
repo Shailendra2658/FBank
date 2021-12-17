@@ -7,14 +7,18 @@
         <entry key="..\:/Aravindhan/AndroidProjects/wibmo/hackathon/fbank/app/src/main/res/drawable-v24/rounded_corner_circle.xml" value="0.20833333333333334" />
         <entry key="..\:/Aravindhan/AndroidProjects/wibmo/hackathon/fbank/app/src/main/res/drawable-v24/rounded_corner_dashboard.xml" value="0.5" />
         <entry key="..\:/Aravindhan/AndroidProjects/wibmo/hackathon/fbank/app/src/main/res/drawable/background_addcard.xml" value="0.20833333333333334" />
+        <entry key="..\:/Aravindhan/AndroidProjects/wibmo/hackathon/fbank/app/src/main/res/drawable/ic_adviosry2.xml" value="0.20833333333333334" />
+        <entry key="..\:/Aravindhan/AndroidProjects/wibmo/hackathon/fbank/app/src/main/res/drawable/ic_alert.xml" value="0.20833333333333334" />
         <entry key="..\:/Aravindhan/AndroidProjects/wibmo/hackathon/fbank/app/src/main/res/drawable/ic_back_white.xml" value="0.20833333333333334" />
         <entry key="..\:/Aravindhan/AndroidProjects/wibmo/hackathon/fbank/app/src/main/res/drawable/ic_baseline_add_24.xml" value="0.20833333333333334" />
+        <entry key="..\:/Aravindhan/AndroidProjects/wibmo/hackathon/fbank/app/src/main/res/drawable/ic_baseline_change_history_24.xml" value="0.20833333333333334" />
         <entry key="..\:/Aravindhan/AndroidProjects/wibmo/hackathon/fbank/app/src/main/res/drawable/ic_baseline_home_24.xml" value="0.20833333333333334" />
         <entry key="..\:/Aravindhan/AndroidProjects/wibmo/hackathon/fbank/app/src/main/res/drawable/ic_baseline_keyboard_arrow_down_24.xml" value="0.20833333333333334" />
         <entry key="..\:/Aravindhan/AndroidProjects/wibmo/hackathon/fbank/app/src/main/res/drawable/ic_baseline_keyboard_arrow_down_brown.xml" value="0.20833333333333334" />
         <entry key="..\:/Aravindhan/AndroidProjects/wibmo/hackathon/fbank/app/src/main/res/drawable/ic_baseline_money_24.xml" value="0.20833333333333334" />
         <entry key="..\:/Aravindhan/AndroidProjects/wibmo/hackathon/fbank/app/src/main/res/drawable/ic_bottom1.xml" value="0.20833333333333334" />
         <entry key="..\:/Aravindhan/AndroidProjects/wibmo/hackathon/fbank/app/src/main/res/drawable/ic_chat.xml" value="0.20833333333333334" />
+        <entry key="..\:/Aravindhan/AndroidProjects/wibmo/hackathon/fbank/app/src/main/res/drawable/ic_dashboard1.xml" value="0.20833333333333334" />
         <entry key="..\:/Aravindhan/AndroidProjects/wibmo/hackathon/fbank/app/src/main/res/drawable/ic_investment.xml" value="0.20833333333333334" />
         <entry key="..\:/Aravindhan/AndroidProjects/wibmo/hackathon/fbank/app/src/main/res/drawable/ic_lc1.xml" value="0.20833333333333334" />
         <entry key="..\:/Aravindhan/AndroidProjects/wibmo/hackathon/fbank/app/src/main/res/drawable/ic_lc2.xml" value="0.20833333333333334" />
@@ -36,7 +40,7 @@
         <entry key="..\:/Aravindhan/AndroidProjects/wibmo/hackathon/fbank/app/src/main/res/drawable/tab_unselct_bg.xml" value="0.20833333333333334" />
         <entry key="..\:/Aravindhan/AndroidProjects/wibmo/hackathon/fbank/app/src/main/res/drawable/withline.xml" value="0.20833333333333334" />
         <entry key="..\:/Aravindhan/AndroidProjects/wibmo/hackathon/fbank/app/src/main/res/drawable/withoutline.xml" value="0.20833333333333334" />
-        <entry key="..\:/Aravindhan/AndroidProjects/wibmo/hackathon/fbank/app/src/main/res/layout/achieved_goals_recyclerview_item.xml" value="0.33" />
+        <entry key="..\:/Aravindhan/AndroidProjects/wibmo/hackathon/fbank/app/src/main/res/layout/achieved_goals_recyclerview_item.xml" value="0.2" />
         <entry key="..\:/Aravindhan/AndroidProjects/wibmo/hackathon/fbank/app/src/main/res/layout/activity_accounts_fragments.xml" value="0.13" />
         <entry key="..\:/Aravindhan/AndroidProjects/wibmo/hackathon/fbank/app/src/main/res/layout/activity_achieved_goals_tab.xml" value="0.1921875" />
         <entry key="..\:/Aravindhan/AndroidProjects/wibmo/hackathon/fbank/app/src/main/res/layout/activity_advisory_fragment.xml" value="0.1921875" />
@@ -51,6 +55,7 @@
         <entry key="..\:/Aravindhan/AndroidProjects/wibmo/hackathon/fbank/app/src/main/res/layout/activity_investment_fragment.xml" value="0.22" />
         <entry key="..\:/Aravindhan/AndroidProjects/wibmo/hackathon/fbank/app/src/main/res/layout/activity_liability_fragment.xml" value="0.1921875" />
         <entry key="..\:/Aravindhan/AndroidProjects/wibmo/hackathon/fbank/app/src/main/res/layout/activity_main.xml" value="0.16893115942028986" />
+        <entry key="..\:/Aravindhan/AndroidProjects/wibmo/hackathon/fbank/app/src/main/res/layout/activity_send.xml" value="0.10507246376811594" />
         <entry key="..\:/Aravindhan/AndroidProjects/wibmo/hackathon/fbank/app/src/main/res/layout/advisory_recyclerview_item.xml" value="0.1921875" />
         <entry key="..\:/Aravindhan/AndroidProjects/wibmo/hackathon/fbank/app/src/main/res/layout/customdialog.xml" value="0.25" />
         <entry key="..\:/Aravindhan/AndroidProjects/wibmo/hackathon/fbank/app/src/main/res/layout/goals_recyclerview_item.xml" value="0.14" />

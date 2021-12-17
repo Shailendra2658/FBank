@@ -39,7 +39,7 @@
             android:id="@+id/tvName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Vijay"
+            android:text="Mahesh P"
             android:textColor="@color/bg_txt_color_black"
             android:textSize="@dimen/text_size_button" />
 

@@ -78,7 +78,7 @@ public class Dashboard extends AppCompatActivity implements BottomNavigationView
         bottomNavigationView.setSelectedItemId(R.id.bottom_dashboard);
 
         txtSubtitle.setText(fromHtml("<small>" + "Switch to 0% commission direct MF " +
-                "and get higher returns <font color=#03A9F4> <u>View recommendations.</u>"
+                "and get higher returns <font color=#0055CC> <u>View recommendations.</u>"
                 + "</small>."));
 
 //        fab.setOnClickListener(v -> startActivity(new Intent(Dashboard.this, MainActivity.class)));
